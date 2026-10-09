@@ -1,0 +1,92 @@
+# Ignorer les fichiers génériques
+*.exe
+*.dll
+*.so
+*.o
+*.class
+*.jar
+*.war
+*.ear
+
+# Ignorer les fichiers de configuration IDE
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+*.suo
+*.user
+
+# Ignorer les fichiers de build
+node_modules/
+bower_components/
+build/
+dist/
+target/
+bin/
+obj/
+
+# Ignorer les fichiers temporaires
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Ignorer les fichiers de cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorer les fichiers de logs
+*.log
+*.logs
+
+# Ignorer les fichiers de données
+*.sqlite
+*.db
+*.mdb
+
+# Ignorer les fichiers de configuration locale
+.env
+.env.local
+.env.*.local
+
+# Ignorer les fichiers d'installation
+*.msi
+*.pkg
+*.deb
+*.rpm
+
+# Ignorer les archives
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+
+# Ignorer les fichiers Office
+*.docx
+*.xlsx
+*.pptx
+*.odt
+*.ods
+
+# Ignorer les images (sauf si nécessaire pour le projet)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.svg
+
+# Ignorer les vidéos
+*.mp4
+*.avi
+*.mov
+*.wmv
+
+# Ignorer les PDFs (documentation)
+*.pdf

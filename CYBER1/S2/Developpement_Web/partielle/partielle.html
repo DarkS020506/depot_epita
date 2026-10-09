@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+    <h1>
+        Titre de mon site
+    </h1>
+</header>
+
+<main>
+    <h2>
+        Position du caree
+    </h2>
+    <ul>
+        <li id="pos_x">
+        </li>
+        <li id="pos_y">
+        </li>
+    </ul>
+</main>
+<aside>
+    <h2>
+        Ma scene
+    </h2>
+    <div id="square">
+    </div>
+</aside>
+<footer>
+    <h3>
+        Mon footer
+    </h3>
+</footer>
+<script>
+
+    let square;
+    let x = 0;
+    let y = 200;
+    let direction=2;
+
+    const position_x = document.getElementById("pos_x");
+    const position_y = document.getElementById("pos_y");
+
+
+    function loop() {
+        x+=direction
+        square.style.left = x+'px';
+        if (x>=400){
+            direction=-2;
+        }
+        if (x<=0){
+            direction=2;
+        }
+        position_x.innerHTML="X: "+x;
+        position_y.innerHTML="Y: "+y;
+    }
+
+    function main () {
+        square = document.getElementById('square');
+
+        console.log('Lancement de la boucle');
+        setInterval(loop, 10);
+    }
+
+    main();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html lang="fr"> 
+    <head> 
+        <meta charSet="utf-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    </head> 
+    <body> 
+        <div id="area" style="width: 500px; height: 300px; background-color: silver; position: relative;">
+            <div id="square" style="position: absolute; width: 50px; height:50px; background-color: red; top: 50px; left:0px">
+
+            </div> 
+        </div> 
+    <script> 
+        const caree = document.getElementById("square");
+        const area = document.getElementById("area");
+        let estEnTrainDeGlisser = false;
+        caree.addEventListener("mousedown", function() {
+            estEnTrainDeGlisser = true;
+        });
+        window.addEventListener("mouseup", function() {
+            estEnTrainDeGlisser = false;
+        });
+        window.addEventListener("mousemove", function(e) {
+            if (estEnTrainDeGlisser) {
+                let rectArea = area.getBoundingClientRect();
+                let x = e.clientX - rectArea.left - 5;
+                let y = e.clientY - rectArea.top - 5;
+                if (x < 0) x = 0;
+                if (x > 450) x = 450;
+                if (y < 0) y = 0;
+                if (y > 250) y = 250;
+
+                caree.style.left = x + "px";
+                caree.style.top = y + "px";
+            }
+        });
+    </script> 
+    </body> 
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="images.png" id="img">
+        <h1>
+            Mon site
+        </h1>
+    </header>
+    <main>
+        <h3>
+            Nouveaute
+        </h3>
+        <h2>
+            Article 1
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum voluptatem deleniti quidem. At, harum culpa! Quod, assumenda amet? Sit numquam odio ex amet cum natus maxime? Fugit delectus dolor exercitationem.
+        </p>
+        <a href="https://.com">
+            Lien 1
+        </a>
+    </main>
+    <aside>
+        <ul id="ul">
+
+        </ul>
+        <button id="btn">
+            Cliquez
+        </button>
+    </aside>
+    <footer>
+        <a href="https://google.com">
+                    Lien 1
+        </a>
+        <a href="https://google.com">
+                    Lien 2
+        </a>
+        <a href="https://google.com">
+                    Lien 3
+        </a>
+    </footer>
+    <script>
+        const bouton=document.getElementById("btn");
+        const image=document.getElementById("img");
+        const aside=document.getElementById("ul");
+        aside.style.color="white";
+        let i = 1;
+        let position_x=0;
+        let direction_x=5;
+        let position_y=0;
+        let direction_y=5;
+        bouton.addEventListener("click",function(){
+            if (i<=10){
+                aside.innerHTML+='<li><a href="https://google.com">Ligne '+i+"</a></li>";
+                i++;
+            }
+            
+
+        })
+        function deplacer(){
+            position_x+=2*direction_x;
+            image.style.left=position_x+"px";
+            position_y+=2*direction_y;
+            image.style.top=position_y+"px";
+            if (position_x>=1075){
+                direction_x=-5;
+            }
+            if (position_x<=0){
+                direction_x=5;
+            }
+            
+            if (position_y>=100){
+                direction_y=-5;
+            }
+            if (position_y<=0){
+                direction_y=5;
+            }
+        }
+        setInterval(deplacer, 1);
+        
+        
+    </script>
+</body>
+</html>

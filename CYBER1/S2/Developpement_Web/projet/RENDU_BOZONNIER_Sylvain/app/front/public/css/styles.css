@@ -1,0 +1,371 @@
+/* BOZONNIER Sylvain - CyberA 2028 */
+:root {
+  --primary: #35479e;
+  --secondary: #35479e;
+  --accent: #F0A500;
+  --success: #2E8B57;
+  --danger: #CC3333;
+  --table-header: #777777;
+  --border: #cccccc;
+  --font-size: 16px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  font-size: var(--font-size);
+}
+
+#root {
+  height: 100%;
+}
+
+.login-page {
+  min-height: 100vh;
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background: white;
+  border-radius: 10px;
+  padding: 40px 36px;
+  width: 380px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.login-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #555;
+  outline: none;
+}
+
+.login-input:focus {
+  border-color: var(--primary);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+
+.login-btn:hover {
+  background-color: var(--primary);
+}
+
+.login-error {
+  color: #cc0000;
+  font-size: 13px;
+  min-height: 18px;
+  text-align: center;
+}
+
+.home-page {
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-login-container {
+  background-color: var(--primary);
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+#app {
+  display: flex;
+  height: 100vh;
+}
+
+#sidebar {
+  width: 250px;
+  background-color: var(--primary);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+}
+
+.sidebar-item {
+  padding: 20px 24px;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  transition: background 0.15s;
+  user-select: none;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.sidebar-item.active {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.sidebar-spacer {
+  flex: 1;
+}
+
+#main {
+  flex: 1;
+  overflow-y: auto;
+  background: white;
+  padding: 40px 50px;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: normal;
+  color: #222;
+  margin: 0 0 14px 0;
+}
+
+.page-divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 0 0 30px 0;
+}
+
+.section-label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.dashboard-cards {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 28px 44px;
+  min-width: 180px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.stat-label {
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+  max-width: 140px;
+}
+
+.stat-value {
+  color: var(--accent);
+  font-size: 52px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.search-input {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  width: 280px;
+  outline: none;
+  color: #555;
+}
+
+.search-input:focus {
+  border-color: var(--secondary);
+}
+
+.btn-primary {
+  padding: 10px 24px;
+  background-color: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.data-table th {
+  background-color: var(--table-header);
+  color: white;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.data-table th.col-right {
+  text-align: right;
+}
+
+.data-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 15px;
+}
+
+.data-table td.col-right {
+  text-align: right;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.table-link {
+  color: var(--secondary);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.table-link:hover {
+  text-decoration: underline;
+}
+
+.status-stock {
+  color: var(--success);
+  font-weight: 500;
+}
+
+.status-borrowed {
+  color: var(--danger);
+  font-weight: 500;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 380px;
+}
+
+.form-input,
+.form-select {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #444;
+  outline: none;
+  width: 100%;
+  background: white;
+}
+
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23333'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: var(--primary);
+}
+
+.form-btn {
+  align-self: flex-start;
+  padding: 11px 22px;
+  background-color: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.form-btn:hover {
+  background-color: var(--primary);
+}
+
+.form-success {
+  color: var(--success);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.form-error {
+  color: var(--danger);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.author-books-section {
+  margin-top: 36px;
+}
+
+.author-books-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 14px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html lang="fr"> 
+    <head> 
+        <meta charSet="utf-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    </head> 
+    <body> 
+        <div id="area" style="width: 500px; height: 300px; background-color: silver; position: relative;">
+            <div id="square" style="position: absolute; width: 50px; height:50px; background-color: red; top: 50px; left:0px">
+
+            </div> 
+        </div> 
+    <script>
+    const area=document.getElementById("area");
+    const square=document.getElementById("square");
+    let position_x=0;
+    let direction_x=5;
+    let position_y=0;
+    let direction_y=5;
+    function deplacer(){
+        position_x=position_x+(2*direction_x)
+        square.style.left=position_x+"px";
+        position_y+=(2*direction_y);
+        square.style.top=position_y+"px";
+
+        if (position_x >= 450){
+            direction_x = -5;
+        }
+        else if(position_x <= 0){
+            direction_x = 5;
+        }
+        if (position_y >= 250){
+            direction_y = -5;
+        }
+        else if(position_y <= 0){
+            direction_y = 5;
+        }
+    }
+    setInterval(deplacer,1)
+
+    </script> 
+    </body> 
+</html>
