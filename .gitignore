@@ -1,4 +1,7 @@
-# Ignorer les fichiers génériques
+# Portfolio Git - Configuration pour un étudiant en Cybersécurité
+# Ce fichier précise quels fichiers ne doivent pas être versionnés
+
+## Compilés et exécutables
 *.exe
 *.dll
 *.so
@@ -8,7 +11,7 @@
 *.war
 *.ear
 
-# Ignorer les fichiers de configuration IDE
+## Configuration IDE et éditeurs
 .vscode/
 .idea/
 *.iml
@@ -16,8 +19,10 @@
 *.ipr
 *.suo
 *.user
+*~
+.DS_Store
 
-# Ignorer les fichiers de build
+## Build et dépendances
 node_modules/
 bower_components/
 build/
@@ -26,67 +31,60 @@ target/
 bin/
 obj/
 
-# Ignorer les fichiers temporaires
+## Fichiers temporaires et cache
 *.tmp
 *.temp
 *.swp
 *.swo
-*~
-.DS_Store
 
-# Ignorer les fichiers de cache
+## Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# Ignorer les fichiers de logs
-*.log
-*.logs
-
-# Ignorer les fichiers de données
-*.sqlite
-*.db
-*.mdb
-
-# Ignorer les fichiers de configuration locale
+## Environnement et configuration locale
 .env
 .env.local
 .env.*.local
 
-# Ignorer les fichiers d'installation
+## Bases de données locales
+*.sqlite
+*.db
+*.mdb
+
+## Installateurs
 *.msi
 *.pkg
 *.deb
 *.rpm
 
-# Ignorer les archives
+## Archives
 *.zip
 *.tar
 *.gz
 *.rar
 *.7z
 
-# Ignorer les fichiers Office
+## Office (sauf PDF qui sont conservés pour la documentation)
 *.docx
 *.xlsx
 *.pptx
 *.odt
 *.ods
 
-# Ignorer les images (sauf si nécessaire pour le projet)
+## Images et médias (non essentiels au code)
 *.png
 *.jpg
 *.jpeg
 *.gif
 *.bmp
 *.svg
-
-# Ignorer les vidéos
 *.mp4
 *.avi
 *.mov
 *.wmv
 
-# Ignorer les PDFs (documentation)
-*.pdf
+## Logs
+*.log
+*.logs

@@ -1,194 +1,107 @@
-# depot_epita - Portfolio Académique
+# Portfolio Étudiant - Cybersécurité et Informatique
 
-## 🎓 Sylvain B. - Étudiant EPITA Cyber Sécurité
+**Sylvain Bozonnier** | Étudiant en Cybersécurité à EPITA
 
-> Portfolio complet de mes projets et travaux pratiques réalisés dans le cadre de ma formation EPITA en Cyber Sécurité.
+## 📌 À propos de ce dépôt
 
----
+Ce dépôt contient l'ensemble de mes travaux pratiques, projets et exercices réalisés durant ma formation en cybersécurité à EPITA. Il est organisé pour présenter mes compétences en **développement, algorithmes, systèmes, cryptographie et sécurité informatique** de manière claire et professionnelle.
 
-## 📚 Structure du Dépôt
-
-Ce dépôt est organisé par **année**, **semestre** et **matière** pour une navigation claire et intuitive.
+## 🏗️ Structure du dépôt
 
 ```
-depot_epita/
-├── CYBER1/
-│   ├── S1/                          # Semestre 1
-│   │   ├── Algorithmique_Structures_Donnees_1/
-│   │   │   └── TRI.c                # Implémentations de tris
-│   │   ├── Introduction_C/         # Projets d'introduction au langage C
-│   │   │   ├── TP4b.c
-│   │   │   ├── TP5C.c
-│   │   │   ├── TP5Cv2.c
-│   │   │   ├── TP5Cv3.c
-│   │   │   └── TP5Cv4.c
-│   │   ├── Introduction_Python/    # Projets Python
-│   │   │   ├── annal.py
-│   │   │   └── liste.py
-│   │   └── Projet/                 # Projets intégrateurs
-│   │       ├── Projet.c
-│   │       ├── Projet.py
-│   │       ├── final/
-│   │       │   └── ...
-│   │       └── v2/
-│   │           └── Untitled-1.py
+CYBER1/
+├── S1/                    # Première année
+│   ├── Programmation_C/    # Langage C, TD et TP
+│   │   ├── TD/           # Travaux dirigés
+│   │   ├── TP/           # Travaux pratiques
+│   │   └── Finals/       # Projets finaux
 │   │
-│   └── S2/                          # Semestre 2
-│       ├── Arithmetique_Cryptographie/
-│       │   ├── crible_d'eratosthene.py
-│       │   ├── cryptographie.c
-│       │   ├── diviseur.py
-│       │   ├── euclide.c
-│       │   ├── euclide.py
-│       │   ├── pgcd.c
-│       │   ├── pgcd.py
-│       │   ├── rsa.c
-│       │   └── revision_crypto.c
-│       │
-│       ├── Algorithmique_Structures_Donnees_2/
-│       │   ├── ABR.c               # Arbres binaires de recherche
-│       │   ├── arbre.c             # Structures d'arbres
-│       │   ├── liste.c             # Listes chaînées
-│       │   ├── revision.c
-│       │   └── revision2.c
-│       │
-│       ├── Bases_Donnees_SQL/
-│       │   ├── corrige_velib.sql
-│       │   └── projet_aeroport/
-│       │       └── projet_aeroport.sql
-│       │
-│       └── Developpement_Web/
-│           ├── exercice/
-│           │   ├── exercice.html
-│           │   ├── script.js
-│           │   └── exercoce2/
-│           │       └── exercice.html
-│           │
-│           ├── partielle/
-│           │   ├── partielle.html
-│           │   └── style.css
-│           │
-│           ├── page1.css
-│           ├── page1.html
-│           ├── page1.js
-│           ├── style.css
-│           ├── Untitled-1.js
-│           │
-│           └── projet/
-│               └── RENDU_BOZONNIER_Sylvain/
-│                   └── app/
-│                       ├── back/
-│                       │   ├── index.js
-│                       │   └── src/
-│                       │       ├── controllers/
-│                       │       │   ├── BookController.js
-│                       │       │   └── ...
-│                       │       └── models/
-│                       │           └── BookModel.js
-│                       │
-│                       └── front/
-│                           ├── index.html
-│                           └── public/
-│                               ├── css/
-│                               │   └── styles.css
-│                               └── html/
-│                                   ├── layout.html
-│                                   ├── com/
-│                                   │   ├── footer.html
-│                                   │   ├── header.html
-│                                   │   └── sidebar.html
-│                                   └── pages/
-│                                       ├── home.html
-│                                       ├── login.html
-│                                       └── ...
+│   ├── Systemes_Linux/    # Administration et script shell
+│   │   ├── TP/           # Travaux pratiques
+│   │   └── Finals/       # Exercices finaux
+│   │
+│   └── Programmation_Python/ # Développement Python
+│       ├── TP/           # Travaux pratiques
+│       └── ...
 │
-└── README.md
+└── S2/                    # Deuxième année
+    ├── Algorithmique/      # Structures de données, ABR
+    ├── Arithmetique_Cryptographie/ # Cryptographie, RSA, Euclide
+    ├── Bases_de_donnees/   # SQL, projets base de données
+    ├── Developpement_Web/ # Projets web full-stack
+    │   └── RENDU_BOZONNIER_Sylvain/ # Projet bibliothèque en Node.js
+    └── Securite/          # Sécurité Python, analyseurs
 ```
 
----
+## 🎯 Compétences clés
 
-## 🚀 Compétences Développées
+### Langages de programmation
+- **C** : Maîtrise des bases, pointeurs, structures de données
+- **Python** : Scripting, algorithmes, développement d'outils
+- **JavaScript/Node.js** : Développement web backend et frontend
+- **Shell/Bash** : Automatisation, administration système
+- **SQL** : Requêtes, conception de bases de données
 
-### Langages & Technologies
+### Domaines techniques
+- **Algorithmique** : Complexité, structures de données (ABR, listes, arbres)
+- **Cryptographie** : Algorithmes RSA, Euclide, PGCD
+- **Systèmes** : Administration Linux, scripts d'automatisation
+- **Réseaux** : Protocoles, développement d'applications réseau
+- **Web** : Développement full-stack, API REST
 
-| Catégorie | Technologies |
-|----------|--------------|
-| **Langages** | C, Python, JavaScript, SQL, HTML, CSS |
-| **Bases de Données** | MySQL, PostgreSQL, Modélisation SQL |
-| **Développement Web** | Node.js, Express, Frontend (HTML/CSS/JS) |
-| **Algorithmique** | Structures de données, Complexité algorithmique, Cryptographie |
-| **Systèmes** | Linux, Administration système, Scripting Bash |
+### Outils et méthodes
+- **Git** : Versionnage, gestion de projets
+- **Docker** : Conteneurisation
+- **Nmap** : Scan de vulnérabilités (projet my-scanner)
+- **Bases de données** : MySQL, SQLite
 
----
+## 🚀 Projets phares
 
-## 📊 Projets Phares
+### Projet Web - Bibliothèque en ligne
+**Technologies** : Node.js, Express, MySQL, HTML/CSS/JS
+- Système de gestion de bibliothèque complet
+- Authentification utilisateur
+- CRUD complet pour livres et auteurs
+- Interface admin et utilisateur
+- **Dossier** : `CYBER1/S2/Developpement_Web/RENDU_BOZONNIER_Sylvain/`
 
-### 🔐 **Arithmétique & Cryptographie** (CYBER1 S2)
-- Implémentation de l'algorithme du crible d'Ératosthène en Python
-- Algorithmes de cryptographie en C (RSA, Euclide, PGCD)
-- Calculs de diviseurs et nombres premiers
+### Projet C - Système de gestion
+**Technologies** : Langage C, structures de données
+- Implémentation de structures avancées
+- Gestion mémoire optimisée
+- **Dossier** : `CYBER1/S1/Projet/`
 
-### 🌐 **Développement Web Complet** (CYBER1 S2)
-- **Projet RENDU_BOZONNIER_Sylvain** : Application web full-stack
-  - Backend : Node.js avec Express, contrôleurs RESTful
-  - Frontend : HTML5, CSS3, JavaScript moderne
-  - Base de données : Modélisation et requêtes SQL
-  - Architecture MVC bien structurée
+### My-Scanner - Outil de sécurité
+**Technologies** : Python, Nmap, bibliothèques de scan
+- Analyse de vulnérabilités réseau
+- Détection de ports ouverts
+- Génération de rapports
+- **Dossier** : `CYBER1/S2/Securite/my-scanner/`
 
-### 📦 **Algorithmique & Structures de Données** (CYBER1 S1 & S2)
-- Implémentation de divers algorithmes de tri en C
-- Structures de données : listes, arbres (ABR), piles, files
-- Projets pratiques avec gestion mémoire en C
+## 📊 Statistiques
 
-### 🗃️ **Bases de Données SQL** (CYBER1 S2)
-- Modélisation de base de données pour système Vélib
-- Projet de gestion d'aéroport avec requêtes complexes
-- Correction d'exercices et optimisation de requêtes
+- **Nombre total de fichiers** : 1000+ fichiers de code
+- **Langues principales** : C, Python, JavaScript, Shell, SQL
+- **Lignes de code** : 175000+ (estimé)
+- **Projets complets** : 10+
 
----
+## 🎓 Formation
 
-## 🎯 Objectifs Pédagogiques
+**EPITA** - École Pour l'Informatique et les Techniques Avancées
+- **Promotion** : 2025-2026
+- **Spécialisation** : Cybersécurité
+- **Parcours** : Ingénierie Informatique
 
-Ce portfolio démontre :
-- ✅ Maîtrise des **fondamentaux de la programmation** (C, Python)
-- ✅ Compréhension des **structures de données** et algorithmes
-- ✅ Capacité à développer des **applications web complètes**
-- ✅ Connaissances en **bases de données** et modélisation
-- ✅ Application des concepts de **cryptographie** et sécurité
-- ✅ Travail sur des **projets intégrateurs** complexes
+## 🔗 Contact
 
----
+- **Email** : [à compléter]
+- **LinkedIn** : [à compléter]
+- **GitHub** : [DarkS020506](https://github.com/DarkS020506)
+- **Portfolio Web** : [à compléter]
 
-## 💼 Pour les Recruteurs
+## 📜 Licence
 
-Ce dépôt représente mon travail académique et mes compétences techniques développées durant ma première année à EPITA. Il montre :
-
-1. **Rigueur et organisation** : Structure claire, code commenté
-2. **Polyvalence** : Plusieurs langages et technologies maîtrisés
-3. **Résolution de problèmes** : Algorithmes complexes implémentés
-4. **Travail en équipe** : Projets collaboratifs (comme le projet RENDU_BOZONNIER_Sylvain)
-5. **Amélioration continue** : Versions multiples des TP (v2, v3, v4)
-
-### Points forts à noter :
-- Le projet **RENDU_BOZONNIER_Sylvain** montre une application web complète avec backend et frontend
-- Les implémentations en **C** démontrent une bonne compréhension de la gestion mémoire
-- Les algorithmes de **cryptographie** montrent un intérêt pour la sécurité informatique
-
----
-
-## 📞 Contact
-
-- **GitHub** : [@DarkS020506](https://github.com/DarkS020506)
-- **Email** : (disponible sur demande)
-- **LinkedIn** : (à ajouter)
-
----
-
-## 📝 Licence
-
-Ce code est partagé à des fins éducatives et de démonstration de compétences. Il est issu de travaux académiques réalisés dans le cadre de la formation EPITA.
-
-© 2025-2026 Sylvain B. - Tous droits réservés
+Ce dépôt est à usage personnel et éducatif. Les projets peuvent être utilisés comme référence avec mention de l'auteur.
 
 ---
 
