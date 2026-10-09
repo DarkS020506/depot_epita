@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh 2> /dev/null || source CAButilitaires.sh
+
+# prologue
+CABinitier deviner_nombre.py
+
+# tests
+jeux="5=gagné \
+      10,5=plus.petit.*gagné \
+      10,1,5=plus.petit.*plus.grand.*gagné \
+       4,6,5=plus.grand.*plus.petit.*gagné \
+      1,10,4=plus.grand.*plus.petit.*perdu.*5 \
+      10,1,6=plus.petit.*plus.grand.*perdu.*5 \
+      10,9,3=plus.petit.*plus.petit.*perdu.*5 \
+       1,2,9=plus.grand.*plus.grand.*perdu.*5 \
+       9,9,9=plus.petit.*plus.petit.*perdu.*5 \
+       1,1,1=plus.grand.*plus.grand.*perdu.*5 \
+     "
+note=$(CABnoteJeu ${jeux})
+sed -i -e "s/random.randint(.*$/5/" deviner_nombre.py
+for jeu in ${jeux}; do
+    entrees="$(cut -d= -f1 <<< ${jeu})"
+    sorties="$(cut -d= -f2 <<< ${jeu//,/ })"
+    obtenu="$(echo -e "${entrees//,/\\n}" | python deviner_nombre.py | tr '\n' ' ')"
+    CABverifier ${note} "tentatives = ${entrees//,/ } => ${sorties} ?" "echo \"${obtenu}\" | grep -e \"${sorties} $\"" "$(echo \"${obtenu}\")"
+done
+
+# épilogue
+CABterminer

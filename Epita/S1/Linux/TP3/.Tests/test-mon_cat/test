@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.sh .Tests/test-${EXERCICE}/fichier*.txt
+
+# controle
+if grep -q 'cat ' ${EXERCICE}.sh; then
+    CABterminer "utilisation de cat interdite" 2
+fi
+
+# tests
+# - 1 fichier
+CABexecuter '' ./${EXERCICE}.sh fichier.txt
+CABverifier  20 './mon_cat.sh fichier.txt => 1> == [fichier.txt] ?' 'diff fichier.txt .out' ", obtenu : $(diff fichier.txt .out)" 
+CABverifier -10 './mon_cat.sh fichier.txt => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './mon_cat.sh fichier.txt => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)" 
+
+# - 0 fichier
+CABexecuter '' ./${EXERCICE}.sh < fichier.txt
+CABverifier  20 './mon_cat.sh < fichier.txt => 1> == [fichier.txt] ?' 'diff fichier.txt .out' ", obtenu : $(diff /etc/passwd .out)" 
+CABverifier -10 './mon_cat.sh < fichier.txt => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './mon_cat.sh < fichier.txt => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)" 
+
+# - 2 fichiers
+cat fichier.txt fichier.txt > .solution
+CABexecuter '' ./${EXERCICE}.sh fichier.txt fichier.txt
+CABverifier  20 './mon_cat.sh fichier.txt fichier.txt => 1> == [fichier.txt + fichier.txt] ?' 'diff .solution .out' ", obtenu : $(diff .solution .out)" 
+CABverifier -10 './mon_cat.sh fichier.txt fichier.txt => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './mon_cat.sh fichier.txt fichier.txt => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)" 
+
+# - option -E
+cat -E fichier2.txt > .solution
+CABexecuter '' ./${EXERCICE}.sh -E fichier2.txt
+CABverifier  15 './mon_cat.sh -E fichier2.txt => 1> == [fichier2.txt$] ?' 'diff .solution .out' ", obtenu : $(diff .solution .out)" 
+CABverifier -10 './mon_cat.sh -E fichier2.txt => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './mon_cat.sh -E fichier2.txt => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)" 
+
+# - option -n
+cat -n fichier.txt > .solution
+CABexecuter '' ./${EXERCICE}.sh -n fichier.txt
+CABverifier  15 './mon_cat.sh -n fichier.txt => 1> == [%d fichier.txt] ?' 'diff -b .solution .out' ", obtenu : $(diff .solution .out)" 
+CABverifier -10 './mon_cat.sh -n fichier.txt => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './mon_cat.sh -n fichier.txt => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)" 
+
+# - option -s
+cat -s fichier.txt fichier.txt > .solution
+CABexecuter '' ./${EXERCICE}.sh -s fichier.txt fichier.txt
+CABverifier  10 './mon_cat.sh -s fichier.txt fichier.txt => 1> == [fichier.txt + fichier.txt -] ?' 'diff .solution .out' ", obtenu : $(diff .solution .out)" 
+CABverifier -10 './mon_cat.sh -s fichier.txt fichier.txt => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './mon_cat.sh -s fichier.txt fichier.txt => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)" 
+
+# épilogue
+CABterminer
+

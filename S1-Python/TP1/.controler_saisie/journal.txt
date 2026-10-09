@@ -1,0 +1,10 @@
+16:32.18 OK   +10  saisies = 0 => 0 ? OK
+16:32.18 NOK (+10) saisies = -5 => -5 ? NOK, obtenu : valeur-5.0
+16:32.18 NOK (+10) saisies = 5 => 5 ? NOK, obtenu : valeur5.0
+16:32.18 NOK (+10) saisies = 6 0 => erreur.*0 ? NOK, obtenu : valeurerreur
+16:32.18 NOK (+10) saisies = 0.5 0 => erreur.*0 ? NOK, obtenu : valeur0.5
+16:32.18 NOK (+10) saisies = -3.9 7.2 6 -3 => erreur.*erreur.*erreur.*-3 ? NOK, obtenu : valeur-3.9
+16:32.18 NOK (+10) saisies = 0.5 -6 6 1.5 2 => erreur.*erreur.*erreur.*erreur.*2 ? NOK, obtenu : valeur0.5
+16:32.19 NOK (+10) saisies = -12.5 -6 0.1 9 -1.5 4 => erreur.*erreur.*erreur.*erreur.*erreur.*4 ? NOK, obtenu : valeurerreur
+16:32.19 NOK (+10) saisies = -42.4 -10 0.1 9 -1.5 3.14 -4 => erreur.*erreur.*erreur.*erreur.*erreur.*erreur.*-4 ? NOK, obtenu : valeurerreur
+16:32.19 NOK (+10) saisies = -89.6 +11 0.8 7 +2.7 2.71 9 -2 => erreur.*erreur.*erreur.*erreur.*erreur.*erreur.*erreur.*-2 ? NOK, obtenu : valeurerreur

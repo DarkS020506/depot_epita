@@ -1,0 +1,5 @@
+mon_echo                4
+mon_test                4
+mon_wc                  4
+mon_cp                  4
+mon_cat                 4

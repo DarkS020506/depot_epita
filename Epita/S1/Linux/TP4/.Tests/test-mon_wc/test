@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.c .Tests/test-mon_wc/fichier?.txt
+
+# compilation
+CABcompiler ${EXERCICE}.c
+
+# tests
+# - 1 fichier
+CABexecuter '' ./${EXERCICE} ./fichier1.txt
+CABverifier 10 './mon_wc ./fichier1.txt => 1> ==  6 15 70 ./fichier1.txt ?' \
+    '[[ $(tr -s "\n\t" "$ " < .out) == " 6 15 70 ./fichier1.txt$" ]]' ", obtenu : $(cat -E .out)"
+CABverifier 05 './mon_wc ./fichier1.txt => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier 05 './mon_wc ./fichier1.txt => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)" 
+
+# - 0 fichier
+CABexecuter '' ./${EXERCICE} < fichier2.txt
+CABverifier 20 './mon_wc < fichier2.txt => 1> ==  1 7 20 ?' \
+    '[[ $(tr -s "\n\t" "$ " < .out) == " 1 7 20$" ]]' ", obtenu : $(cat -E .out)"
+
+# - 2 fichiers
+CABexecuter '' ./${EXERCICE} fichier1.txt ./fichier2.txt
+CABverifier 20 './mon_wc fichier1.txt fichier2.txt => 1> ==  6 15 70 fichier1.txt\n 1 7 20 ./fichier2.txt\n 7 22 90 total ?' \
+    '[[ $(tr -s "\n\t" "$ " < .out) == " 6 15 70 fichier1.txt$ 1 7 20 ./fichier2.txt$ 7 22 90 total$" ]]' ", obtenu : $(cat -E .out)"
+
+# - 3 fichiers dont '-' 
+CABexecuter '' ./${EXERCICE} fichier1.txt - fichier2.txt < fichier1.txt
+CABverifier 20 './mon_wc fichier1.txt - fichier2.txt < fichier1.txt => 1> ==  6 15 70 fichier1.txt\n 6 15 70 -\n 1 7 20 fichier2.txt\n 13 37 160 total ?' \
+    '[[ $(tr -s "\n\t" "$ " < .out) == " 6 15 70 fichier1.txt$ 6 15 70 -$ 1 7 20 fichier2.txt$ 13 37 160 total$" ]]' ", obtenu : $(cat -E .out)"
+
+# - 3 fichiers dont 1 erroné
+CABexecuter '' ./${EXERCICE} fichier1.txt foo fichier2.txt
+CABverifier 10 './mon_wc fichier1.txt foo fichier2.txt => 2> == mon_wc:... ?' 'grep -qie ^mon_wc .err' ", obtenu : $(cat .err)"
+CABverifier 10 './mon_wc fichier1.txt foo fichier2.txt => $? == 1 ?' '(( $(cat .stat) == 1 ))' ", obtenu : $(cat .stat)" 
+CABverifier -20 './mon_wc fichier1.txt foo fichier2.txt => 1> ==  6 15 70 fichier1.txt\n 1 7 20 fichier2.txt\n 7 22 90 total ?' \
+    '[[ $(tr -s "\n\t" "$ " < .out) == " 6 15 70 fichier1.txt$ 1 7 20 fichier2.txt$ 7 22 90 total$" ]]' ", obtenu : $(cat -E .out)"
+
+# épilogue
+CABterminer
+

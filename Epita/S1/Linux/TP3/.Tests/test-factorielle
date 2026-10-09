@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.sh
+
+# tests
+# - cas "normal"
+CABexecuter '' ./${EXERCICE}.sh 6
+CABverifier 30 './factorielle.sh 3 => 1> == 6 ?' '[[ $(cat .out) == "720" ]]' ", obtenu : $(cat .out)"
+CABverifier -10 './factorielle.sh 3 => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './factorielle.sh 3 => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas d'erreur 1 : pas d'argument
+CABexecuter '' ./${EXERCICE}.sh
+CABverifier 10 './factorielle.sh => 1> == "" ?' '[[ -z $(cat .out) ]]' ", obtenu : $(cat .out)"
+CABverifier 10 './factorielle.sh => 2> == "...factorielle.sh..." ?' 'grep -qi factorielle.sh .err' ", obtenu : $(cat .err)"
+CABverifier 10 './factorielle.sh => $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas d'erreur 2 : trop d'arguments ou valeur négative
+CABexecuter '' ./${EXERCICE}.sh foo barr
+CABverifier 10 './factorielle.sh foo bar => $? != 0 ?' '(( $(cat .stat) != 0 ))' $(cat .stat) 
+CABexecuter '' ./${EXERCICE}.sh -1
+CABverifier 10 './factorielle.sh -1 => $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas limite 0 et 1
+CABexecuter '' ./${EXERCICE}.sh 0
+CABverifier 10 './factorielle.sh 0 => 1> == 1 ?' '[[ $(cat .out) == "1" ]]' ", obtenu : $(cat .out)"
+CABexecuter '' ./${EXERCICE}.sh 1
+CABverifier 10 './factorielle.sh 1 => 1> == 1 ?' '[[ $(cat .out) == "1" ]]' ", obtenu : $(cat .out)"
+
+# épilogue
+CABterminer
+

@@ -1,0 +1,15 @@
+15:18.08 Test : ./mon_cp /etc/passwd motsdepasse
+15:18.08 OK   +05  => 1> == "" ? OK
+15:18.08 OK   +05  => 2> == "" ? OK
+15:18.08 OK   +05  => $? == 0 ? OK
+15:18.08 OK   +10  diff /etc/passwd motsdepasse => "" ? OK
+15:18.08 Test : ./mon_cp /etc/passwd /etc/group repertoire1
+15:18.08 OK   +05  => $? == 0 ? OK
+15:18.08 OK   +10  diff /etc/passwd repertoire1/passwd => "" ? OK
+15:18.08 OK   +10  diff /etc/group repertoire1/group => "" ? OK
+15:18.08 Test : ./mon_cp /etc/passwd /etc/foo repertoire2/
+15:18.08 OK   +10  => $? == 1 ? OK
+15:18.08 OK   +15  diff /etc/passwd repertoire2/passwd => "" ? OK
+15:18.08 Test : ./mon_cp foo
+15:18.08 OK   +10  => 2> == ...mon_cp... ? OK
+15:18.08 OK   +15  => $? == 1 ? OK

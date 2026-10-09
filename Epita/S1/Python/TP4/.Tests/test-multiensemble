@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+
+from CAButilitaires import *
+
+# prologue
+CABinitier(f"{CABexercice()}.py")
+
+# tests ajouter()
+parametres = "ensemble, element"
+jeux = [ \
+    ({'a':2, 'b':2, 'c':1}, 'd', 1, {'a':2, 'b':2, 'c':1, 'd':1}), \
+    ({'a':2, 'b':2, 'c':1, 'd':1}, 'b', 3, {'a':2, 'b':3, 'c':1, 'd':1}) \
+]
+fonction = CABimporter(CABexercice(), "ajouter")
+
+CABjournaliser("tests ajouter()")
+for jeu in jeux:
+    # arguments et attendus
+    ensemble = dict(jeu[0])
+    element = jeu[1]
+    retour_attendu = jeu[2]
+    ensemble_attendu = jeu[3]
+    # presentation arguments
+    entrees = f"{jeu[0]}, {jeu[1]}"
+    # appel fonction
+    retour = fonction(ensemble, element)
+    # véfications
+    CABverifier(100 / 3 / len(jeux) / 2, f"{parametres} = {entrees} => retour = {retour_attendu} ?", \
+        str(retour == retour_attendu), f", obtenu : {retour}")  
+    CABverifier(100 / 3 / len(jeux) / 2, f"{parametres} = {entrees} => ensemble = {ensemble_attendu} ?", \
+        str(ensemble == ensemble_attendu), f", obtenu : {ensemble}")  
+
+# tests retirer()
+parametres = "ensemble, element"
+jeux = [ \
+    ({'a':2, 'b':2, 'c':1}, 'b', 1, {'a':2, 'b':1, 'c':1}), \
+    ({'a':2, 'b':1, 'c':1}, 'c', 0, {'a':2, 'b':1}), \
+    ({'a':2, 'b':1}, 'd', -1, {'a':2, 'b':1}) \
+]
+fonction = CABimporter(CABexercice(), "retirer")
+
+CABjournaliser("tests retirer()")
+for jeu in jeux:
+    # arguments et attendus
+    ensemble = dict(jeu[0])
+    element = jeu[1]
+    retour_attendu = jeu[2]
+    ensemble_attendu = jeu[3]
+    # presentation arguments
+    entrees = f"{jeu[0]}, {jeu[1]}"
+    # appel fonction
+    retour = fonction(ensemble, element)
+    # véfications
+    CABverifier(100 / 3 / len(jeux) / 2, f"{parametres} = {entrees} => retour = {retour_attendu} ?", \
+        str(retour == retour_attendu), f", obtenu : {retour}")  
+    CABverifier(100 / 3 / len(jeux) / 2, f"{parametres} = {entrees} => ensemble = {ensemble_attendu} ?", \
+        str(ensemble == ensemble_attendu), f", obtenu : {ensemble}")  
+
+# tests union()
+parametres = "ensemble1, ensemble2"
+jeux = [ \
+    ({'a':2, 'b':1}, {'b':1, 'c':2}, {'a':2, 'b':2, 'c':2}) \
+]
+fonction = CABimporter(CABexercice(), "union")
+
+CABjournaliser("tests union()")
+for jeu in jeux:
+    # arguments et attendus
+    ensemble1 = dict(jeu[0])
+    ensemble2 = dict(jeu[1])
+    attendu = jeu[2]
+    # presentation arguments
+    entrees = f"{jeu[0]}, {jeu[1]}"
+    # appel fonction
+    retour = fonction(ensemble1, ensemble2)
+    # véfications
+    CABverifier(100 / 3 / len(jeux) / 2, f"{parametres} = {entrees} => retour = {attendu} ?", \
+        str(retour == attendu), f", obtenu : {retour}")  
+    CABverifier(100 / 3 / len(jeux) / 4, f"{parametres} = {entrees} => ensemble1 non modifié ?", \
+        str(ensemble1 == jeu[0]))
+    CABverifier(100 / 3 / len(jeux) / 4, f"{parametres} = {entrees} => ensemble2 non modifié ?", \
+        str(ensemble2 == jeu[1]))
+
+# epilogue
+CABterminer()
+

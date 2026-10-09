@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh 2> /dev/null || source CAButilitaires.sh
+
+# prologue
+CABinitier puissance.py
+
+# controle
+if grep -cE '\*\*' puissance.py >/dev/null 2>&1; then
+   CABterminer 'operateur ** interdit' 2
+fi
+
+# jeuer
+jeux="2.0,0=1.0 2.0,1=2.0 2.0,2=4.0 2.0,5=32.0"
+note=$(CABnoteJeu ${jeux})
+for jeu in ${jeux}; do
+    entrees="$(cut -d= -f1 <<< ${jeu})"
+    sorties="$(cut -d= -f2 <<< ${jeu//,/ })"
+    obtenu="$(python puissance.py <<< $(echo -e "${entrees//,/\\n}"))"
+    CABverifier ${note} "x n = ${entrees//,/ } => ${sorties} ?" "grep -e \"${sorties}$\" <<< \"${obtenu}\"" "${obtenu}"
+    continue
+    x="$(cut -d: -f1 <<< ${jeu})"
+    n="$(cut -d: -f2 <<< ${jeu})"
+    p="$(cut -d: -f3 <<< ${jeu})"
+    obtenu="$(python puissance.py << stop
+    ${x}
+    ${n}
+stop
+    )"
+    CABverifier ${note} "x=${x}  n=${n} => ${p} ?" "grep -e ${p}$ <<< \"${obtenu}\"" "${obtenu}"
+done
+
+# épilogue
+CABterminer

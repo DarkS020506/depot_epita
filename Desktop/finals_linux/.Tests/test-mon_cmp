@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh
+
+# prologue
+CABinitier ${EXERCICE}.c
+
+# compilation
+CABcompiler ${EXERCICE}.c
+
+# tests
+# - cas normal fichiers identiques
+cp /etc/group groupes
+CABexecuter 'test ./mon_cmp /etc/group groupes' ./${EXERCICE} /etc/group groupes
+CABverifier  10 '=> $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+CABverifier -10 '=> 1> == "" ?' '[[ -z $(cat .out) ]]' ", obtenu : $(cat .out)"
+CABverifier -10 '=> 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+
+# - cas normal fichiers différents
+CABexecuter 'test ./mon_cmp /etc/group /etc/passwd' ./${EXERCICE} /etc/group /etc/passwd
+CABverifier  30 '=> $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas limite fichiers identiques
+touch fichier.txt
+CABexecuter 'test ./mon_cmp fichier.txt fichier.txt' ./${EXERCICE} fichier.txt fichier.txt
+CABverifier  30 '=> $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas d'erreur syntaxe incorrecte
+CABexecuter 'test ./mon_cmp /etc/group' ./${EXERCICE} /etc/group
+CABverifier 05 '=> 1> == "" ?' '[[ -z $(cat .out) ]]' ", obtenu : $(cat .out)"
+CABverifier 05 '=> 2> == "...mon_cmp..." ?' 'grep -qi mon_cmp .err' ", obtenu : $(cat .err)"
+CABverifier 05 '=> $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas d'erreur fichier incorrects
+CABexecuter 'test ./mon_cmp /etc/group foo' ./${EXERCICE} /etc/group foo
+CABverifier 05 '=> 1> == "" ?' '[[ -z $(cat .out) ]]' ", obtenu : $(cat .out)"
+CABverifier 05 '=> 2> == "...mon_cmp..." ?' 'grep -qi mon_cmp .err' ", obtenu : $(cat .err)"
+CABverifier 05 '=> $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+
+# épilogue
+CABterminer
+

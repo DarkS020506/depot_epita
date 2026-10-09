@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.sh
+
+# tests
+# - cas sans parametre
+CABexecuter '' ./${EXERCICE}.sh
+CABverifier  25 './afficher_contenu.sh => 1> == "" ?' '[[ -z $(cat .out) ]]' ", obtenu : $(cat .out)"
+CABverifier -10 './afficher_contenu.sh => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './afficher_contenu.sh => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas fichier
+echo "/etc/group :" > .solution
+cat /etc/group >> .solution
+CABexecuter '' ./${EXERCICE}.sh /etc/group
+CABverifier  25 './afficher_contenu.sh /etc/group => 1> == /etc/group :\n... ?' 'diff .solution .out' ", obtenu : $(diff .solution .out)"
+CABverifier -10 './afficher_contenu.sh /etc/group => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './afficher_contenu.sh /etc/group => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas repertoire
+echo "/tmp :" > .solution
+ls /tmp >> .solution
+CABexecuter '' ./${EXERCICE}.sh /tmp
+CABverifier  25 './afficher_contenu.sh /tmp => 1> == /tmp :\n... ?' 'diff .solution .out' ", obtenu : $(diff .solution .out)"
+CABverifier -10 './afficher_contenu.sh /tmp => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './afficher_contenu.sh /tmp => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas mixte avec erreur
+echo "/etc/passwd :" > .solution
+cat /etc/passwd >> .solution
+echo "$HOME :" >> .solution
+ls $HOME >> .solution
+echo -e "foo :\npas une entree" > .solution.err
+CABexecuter '' ./${EXERCICE}.sh /etc/passwd foo $HOME
+CABverifier 10 './afficher_contenu.sh /etc/passwd foo $HOME => 1> == /tmp :\n...\n/home/...:\n... ?' 'diff .solution .out' ", obtenu : $(diff .solution .out)"
+CABverifier 10 './afficher_contenu.sh /etc/passwd foo $HOME => 2> == foo :\n pas une entree ?' 'diff .solution.err .err' ", obtenu : $(diff .solution.err .err)"
+CABverifier 05 './afficher_contenu.sh /etc/passwd foo $HOME => $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+
+# A COMPLETER ulterieurement
+
+# épilogue
+CABterminer
+

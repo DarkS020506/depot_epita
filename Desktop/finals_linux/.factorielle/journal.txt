@@ -1,0 +1,8 @@
+05:06.19 OK   +30  ./factorielle.sh 3 => 1> == 6 ? OK
+05:06.19 OK   +10  ./factorielle.sh => 1> == "" ? OK
+05:06.19 NOK (+10) ./factorielle.sh => 2> == "...factorielle.sh..." ? NOK, obtenu : 
+05:06.19 OK   +10  ./factorielle.sh => $? != 0 ? OK
+05:06.19 OK   +10  ./factorielle.sh foo bar => $? != 0 ? OK
+05:06.19 OK   +10  ./factorielle.sh -1 => $? != 0 ? OK
+05:06.19 OK   +10  ./factorielle.sh 0 => 1> == 1 ? OK
+05:06.19 OK   +10  ./factorielle.sh 1 => 1> == 1 ? OK

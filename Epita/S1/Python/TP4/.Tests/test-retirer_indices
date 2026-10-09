@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+
+from CAButilitaires import *
+
+# prologue
+CABinitier(f"{CABexercice()}.py")
+
+# tests
+parametres = "liste, indices"
+jeux = [ \
+    (['a', 'b', 'c'], {0, 2}, 2, ['b']), \
+    (['a', 'b', 'c'], {3, 0}, 1, ['b', 'c']), \
+    (['a', 'b', 'c'], {0, 1, 2}, 3, []), \
+    (['a', 'b', 'c'], set(), 0, ['a', 'b', 'c']) \
+]
+fonction = CABimporter(CABexercice(), CABexercice())
+
+for jeu in jeux:
+    # arguments et attendus
+    liste = list(jeu[0])
+    indices = jeu[1]
+    retour_attendu = jeu[2]
+    liste_attendue = jeu[3]
+    # presentation arguments
+    entrees = f"{jeu[0]}, {jeu[1]}"
+    # appel fonction
+    retour = fonction(liste, indices)
+    # véfications
+    CABverifier(100 / len(jeux) / 2, f"{parametres} = {entrees} => retour = {retour_attendu} ?", \
+        str(retour == retour_attendu), f", obtenu : {retour}")  
+    CABverifier(100 / len(jeux) / 2, f"{parametres} = {entrees} => liste = {liste_attendue} ?", \
+        str(liste == liste_attendue), f", obtenu : {liste}")  
+
+# epilogue
+CABterminer()
+

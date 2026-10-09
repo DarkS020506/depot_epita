@@ -1,0 +1,4 @@
+15:06.15 OK   +25  chaine =  => True ? OK
+15:06.15 OK   +25  chaine = Bob => True ? OK
+15:06.15 OK   +25  chaine = Ta bete te bat => True ? OK
+15:06.15 OK   +25  chaine = Ta bête te bat => False ? OK

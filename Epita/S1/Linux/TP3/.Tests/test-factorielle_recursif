@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.sh
+
+# contrainte
+#if ! grep -qe '\$(.*/factorielle_recursif.sh ' ${EXERCICE}.sh; then # trop restrictif
+if ! grep -qe '/factorielle_recursif.sh ' ${EXERCICE}.sh; then
+    CABterminer "pas d'appel récursif du script" 2
+fi 
+
+# tests
+# - cas "normal"
+CABexecuter '' ./${EXERCICE}.sh 6
+CABverifier  30 './factorielle_recursif.sh 3 => 1> == 6 ?' '[[ $(cat .out) == "720" ]]' ", obtenu : $(cat .out)"
+CABverifier -10 './factorielle_recursif.sh 3 => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './factorielle_recursif.sh 3 => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas d'erreur 1 : pas d'argument
+CABexecuter '' ./${EXERCICE}.sh
+CABverifier 10 './factorielle_recursif.sh => 1> == "" ?' '[[ -z $(cat .out) ]]' ", obtenu : $(cat .out)"
+CABverifier 10 './factorielle_recursif.sh => 2> == "...factorielle_recursif.sh..." ?' 'grep -qi factorielle_recursif.sh .err' ", obtenu : $(cat .err)"
+CABverifier 10 './factorielle_recursif.sh => $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas d'erreur 2 : trop d'arguments ou valeur négative
+CABexecuter '' ./${EXERCICE}.sh foo barr
+CABverifier 10 './factorielle_recursif.sh foo bar => $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+CABexecuter '' ./${EXERCICE}.sh -1
+CABverifier 10 './factorielle_recursif.sh -1 => $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas limite 0 et 1
+CABexecuter '' ./${EXERCICE}.sh 0
+CABverifier 10 './factorielle_recursif.sh 0 => 1> == 1 ?' '[[ $(cat .out) == "1" ]]' ", obtenu : $(cat .out)"
+CABexecuter '' ./${EXERCICE}.sh 1
+CABverifier 10 './factorielle_recursif.sh 1 => 1> == 1 ?' '[[ $(cat .out) == "1" ]]' ", obtenu : $(cat .out)"
+
+# épilogue
+CABterminer
+

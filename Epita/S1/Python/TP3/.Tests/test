@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.py
+
+# variables reprogrammables
+# - programme à exécuter :
+#   . appeler la fonction python, avec ${entrees} interprété comme argument
+#   . ne retenir que la dernière ligne de l'exécution (ignorer l'éventuel programme de test du script)
+programme="echo -e \"${EXERCICE}(\${entrees})\" | python -i ${EXERCICE}.py 2>/dev/null | tail -1"
+# - vérification à faire :
+#   . égalité stricte de ${obtenu} avec ${attendu}
+verification='[[ \"${obtenu}\" == \"${attendu}\" ]]'
+
+# environnement propre à l'exercice
+# - jeux de test et noms des paramètres
+# - mais aussi programme et vérification spécifiques, si nécessaire
+for definition in ../.Tests/${EXERCICE}*.def; do
+    [[ -n "${TRACES}" ]] && echo ".Tests/test source ${definition}" 
+    source "${definition}"
+done
+[[ -n "${TRACES}" ]] && echo ".Tests/test \$programme=${programme}, \$verification=${verification}" 
+
+# tests proprement dits
+for jeu in "${jeux[@]}"; do
+
+    # extraire entrées et attendu
+    entrees="$(cut -d= -f1 <<< ${jeu})"
+    attendu="$(cut -d= -f2 <<< ${jeu})"
+    [[ -n "${TRACES}" ]] && echo ".Tests/test \$entrees=${entrees}, \$attendu=${attendu}\$" 
+
+    # exécuter le programme, recueillir sa sortie
+    obtenu="$(eval timeout -k 1s ${TIMEOUT:-1s} ${programme})"
+    #entrees=
+    [[ -n "${TRACES}" ]] && echo ".Tests/test eval(\$verification)=$(eval echo \"${verification}\")" 
+
+    # vérifier que l'obtenu correspond à l'attendu
+    CABverifier $(( 100 / ${#jeux[@]} )) \
+        "${parametres} = ${entrees} => ${attendu} ?" \
+        "$(eval echo ${verification})" \
+        ", obtenu : \"${obtenu}\""
+
+done
+
+        #"[[ \"${obtenu}\" == \"${attendu}\" ]]" \
+# épilogue
+CABterminer
+

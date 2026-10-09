@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+
+from CAButilitaires import *
+
+# prologue
+CABinitier(f"{CABexercice()}.py")
+
+# tests
+parametres = "ensemble"
+jeux = [ \
+    ([2.7, '+', 1], 3.7), \
+    ([[1, '+', 2], '*', 3], 9), \
+    ([[1, '+', 2], '*', [3, '-', 4.0]], -3.0), \
+    ([1, 'x', 2], None), \
+    ([1, '+', 'hi!'], None) \
+]
+fonction = CABimporter(CABexercice(), CABexercice())
+
+for jeu in jeux:
+    entrees = jeu[0]
+    attendu = jeu[1]
+    obtenu = fonction(entrees)
+    CABverifier(100 / len(jeux), f"{parametres} = {entrees} => {attendu} ?", f"{obtenu} == {attendu}", f", obtenu : {obtenu}")  
+    #CABverifier(100 / len(jeux), f"{parametres} = {entrees} => {attendu} ? ", str(obtenu == attendu), f", obtenu : {obtenu}")  
+
+# epilogue
+CABterminer()
+

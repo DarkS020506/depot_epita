@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh 2> /dev/null || source CAButilitaires.sh
+
+# prologue
+CABinitier $(CABexercice).py
+
+# tests
+jeux=" \
+=True \
+Bob=True \
+Ta~bete~te~bat=True \
+Ta~bête~te~bat=False \
+"
+
+CABjouer "python $(CABexercice).py" "chaine" ${jeux}
+
+# épilogue
+CABterminer

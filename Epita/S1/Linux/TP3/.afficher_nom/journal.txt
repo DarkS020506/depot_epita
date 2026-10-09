@@ -1,0 +1,5 @@
+11:22.00 OK   +25  ./afficher_nom.sh => 1> == main.c ? OK
+11:22.00 OK   +25  ./afficher_nom.sh -e "" -r /tmp -n foo => 1> == /tmp/foo ? OK
+11:22.00 OK   +25  ./afficher_nom.sh -r /var -e log => 1> == /var/main.log ? OK
+11:22.00 NOK (+15) ./afficher_nom.sh -d /var => 2> == afficher_nom.sh... ? NOK, obtenu : 
+11:22.00 OK   +10  ./afficher_nom.sh -d /var => $? != 0 ? OK

@@ -1,0 +1,10 @@
+16:32.19 OK   +10  tentatives = 5 => gagné ? OK
+16:32.19 OK   +10  tentatives = 10 5 => plus.petit.*gagné ? OK
+16:32.19 OK   +10  tentatives = 10 1 5 => plus.petit.*plus.grand.*gagné ? OK
+16:32.19 OK   +10  tentatives = 4 6 5 => plus.grand.*plus.petit.*gagné ? OK
+16:32.19 OK   +10  tentatives = 1 10 4 => plus.grand.*plus.petit.*perdu.*5 ? OK
+16:32.19 OK   +10  tentatives = 10 1 6 => plus.petit.*plus.grand.*perdu.*5 ? OK
+16:32.19 OK   +10  tentatives = 10 9 3 => plus.petit.*plus.petit.*perdu.*5 ? OK
+16:32.19 OK   +10  tentatives = 1 2 9 => plus.grand.*plus.grand.*perdu.*5 ? OK
+16:32.19 OK   +10  tentatives = 9 9 9 => plus.petit.*plus.petit.*perdu.*5 ? OK
+16:32.19 OK   +10  tentatives = 1 1 1 => plus.grand.*plus.grand.*perdu.*5 ? OK

@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+
+from CAButilitaires import *
+
+# utilitaire
+def sontEgaux(obtenu: list[set], attendu: list[set]) -> bool:
+    if len(obtenu) != len(attendu):
+        return False
+    for ensemble in attendu:
+        if not ensemble in obtenu:
+            return False
+    taille = 0
+    for ensemble in obtenu:
+        if len(ensemble) < taille:
+            return False
+        taille = len(ensemble)
+    return True
+
+# prologue
+CABinitier(f"{CABexercice()}.py")
+
+# tests
+parametres = "ensemble"
+jeux = [ \
+    (set(), [set()]), \
+    ({1}, [set(), {1}]), \
+    ({1, 2}, [set(), {1}, {2}, {1, 2}]), \
+    ({1, 2, 3}, [set(), {1}, {2}, {3}, {1, 2}, {1, 3}, {2, 3}, {1, 2, 3}]) \
+]
+fonction = CABimporter(CABexercice(), CABexercice())
+
+for jeu in jeux:
+    entrees = set(jeu[0])
+    attendu = jeu[1]
+    obtenu = fonction(entrees)
+    CABverifier(100 / len(jeux), f"{parametres} = {entrees} => {attendu} ?", str(sontEgaux(obtenu, attendu)), f", obtenu : {obtenu}")  
+
+entrees = jeux[len(jeux) - 1][0]
+argument = set(entrees)
+fonction(argument)
+CABverifier(-40, f"paramètre ensemble non modifié ?", str(argument == entrees))  
+
+# epilogue
+CABterminer()
+

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh 2> /dev/null || source CAButilitaires.sh
+
+# prologue
+CABinitier controler_saisie.py
+
+# tests
+jeux="0=0 \
+      -5=-5 \
+      5=5 \
+      6,0=erreur.*0 \
+      0.5,0=erreur.*0 \
+      -3.9,7.2,6,-3=erreur.*erreur.*erreur.*-3 \
+      0.5,-6,6,1.5,2=erreur.*erreur.*erreur.*erreur.*2 \
+      -12.5,-6,0.1,9,-1.5,4=erreur.*erreur.*erreur.*erreur.*erreur.*4 \
+      -42.4,-10,0.1,9,-1.5,3.14,-4=erreur.*erreur.*erreur.*erreur.*erreur.*erreur.*-4 \
+      -89.6,+11,0.8,7,+2.7,2.71,9,-2=erreur.*erreur.*erreur.*erreur.*erreur.*erreur.*erreur.*-2 \
+     "
+note=$(CABnoteJeu ${jeux})
+for jeu in ${jeux}; do
+    entrees="$(cut -d= -f1 <<< ${jeu})"
+    sorties="$(cut -d= -f2 <<< ${jeu//,/ })"
+    obtenu="$(python controler_saisie.py <<< $(echo -e "${entrees//,/\\n}"))"
+    CABverifier ${note} "saisies = ${entrees//,/ } => ${sorties} ?" "grep -e \"${sorties}$\" <<< \"${obtenu}\"" "${obtenu}"
+done
+
+# épilogue
+CABterminer

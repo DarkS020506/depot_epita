@@ -1,0 +1,9 @@
+05:06.19 test pas de .doc
+05:06.19 OK   +20  ./nombre_docs.sh => 1> == 0 ? OK
+05:06.19 test fichier{1..5}.doc
+05:06.19 OK   +50  ./nombre_docs.sh => 1> == 5 ? OK
+05:06.19 NOK  -10  ./nombre_docs.sh => $? == 0 ? NOK, obtenu : 1
+05:06.19 test syntaxe incorrecte
+05:06.20 OK   +10  ./nombre_docs.sh foo => 1> == "" ? OK
+05:06.20 NOK (+10) ./nombre_docs.sh foo => 2> == "...nombre_docs.sh..." ? NOK, obtenu : 
+05:06.20 OK   +10  ./nombre_docs.sh foo => $? != 0 ? OK

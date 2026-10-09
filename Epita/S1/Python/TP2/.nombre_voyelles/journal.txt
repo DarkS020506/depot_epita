@@ -1,0 +1,4 @@
+15:06.15 OK   +25  chaine =  => 0 ? OK
+15:06.15 OK   +25  chaine = bOnjour => 3 ? OK
+15:06.15 OK   +25  chaine = bnjr => 0 ? OK
+15:06.15 OK   +25  chaine = aeiouyAEIOUY => 12 ? OK

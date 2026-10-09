@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.sh
+
+# tests
+# - cas trois defaut
+CABexecuter '' ./${EXERCICE}.sh
+CABverifier  25 './afficher_nom.sh => 1> == main.c ?' '[[ $(cat .out) == "main.c" ]]' ", obtenu : $(cat .out)"
+CABverifier -10 './afficher_nom.sh => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './afficher_nom.sh => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas trois options
+CABexecuter '' ./${EXERCICE}.sh -e '' -r /tmp -n foo
+CABverifier  25 './afficher_nom.sh -e "" -r /tmp -n foo => 1> == /tmp/foo ?' '[[ $(cat .out) == "/tmp/foo" ]]' ", obtenu : $(cat .out)"
+CABverifier -10 './afficher_nom.sh -e "" -r /tmp -n foo => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './afficher_nom.sh -e "" -r /tmp -n foo => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas deux options, un defaut
+CABexecuter '' ./${EXERCICE}.sh -r /var -e log
+CABverifier  25 './afficher_nom.sh -r /var -e log => 1> == /var/main.log ?' '[[ $(cat .out) == "/var/main.log" ]]' ", obtenu : $(cat .out)"
+CABverifier -10 './afficher_nom.sh -r /var -e log => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './afficher_nom.sh -r /var -e log => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas option inconnue
+CABexecuter '' ./${EXERCICE}.sh -d /var
+CABverifier  15 './afficher_nom.sh -d /var => 2> == afficher_nom.sh... ?' 'grep -qie ^afficher_nom.sh .err' ", obtenu : $(cat .err)"
+CABverifier -10 './afficher_nom.sh -d /var => 1> == "" ?' '[[ -z $(cat .out) ]]' ", obtenu : $(cat .out)"
+CABverifier  10 './afficher_nom.sh -d /var => $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+
+# A COMPLETER ulterieurement
+
+# épilogue
+CABterminer
+

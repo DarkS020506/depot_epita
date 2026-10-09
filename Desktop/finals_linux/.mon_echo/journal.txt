@@ -1,0 +1,11 @@
+05:06.20 OK   +10  ./mon_echo foo bar baz => 1> == foo bar baz\n ? OK
+05:06.20 OK   +05  ./mon_echo foo bar baz => 2> == "" ? OK
+05:06.20 OK   +05  ./mon_echo foo bar baz => $? == 0 ? OK
+05:06.20 OK   +10  ./mon_echo => 1> == \n ? OK
+05:06.20 OK   +10  ./mon_echo -n qux => 1> == qux ? OK
+05:06.20 NOK (+10) ./mon_echo -n => 1> == "" ? NOK, obtenu : -n$
+05:06.20 NOK (+10) ./mon_echo -E -e foo => 1> == foo\n ? NOK, obtenu : -E -e foo$
+05:06.20 OK   +10  ./mon_echo foo -n => 1> == foo -n\n ? OK
+05:06.20 OK   +10  ./mon_echo -n -x => 1> == -x ? OK
+05:06.20 OK   +10  ./mon_echo -x -n => 1> == -x -n\n ? OK
+05:06.20 NOK (+10) ./mon_echo -n -n foo => 1> == foo ? NOK, obtenu : -n foo

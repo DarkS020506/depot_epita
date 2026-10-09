@@ -1,0 +1,5 @@
+racine_carree           4
+triangle                4
+combinaisons            4
+remplacer_chaine        4
+decrire_forme           4

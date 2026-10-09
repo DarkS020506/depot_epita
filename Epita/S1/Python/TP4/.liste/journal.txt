@@ -1,0 +1,27 @@
+12:08:00 tests append()
+12:08:00 OK   +8.3  liste, value = {}, a => liste = {0: 'a'} ? OK
+12:08:00 OK   +8.3  liste, value = {0: 'a'}, b => liste = {0: 'a', 1: 'b'} ? OK
+12:08:00 tests insert()
+12:08:00 NOK (+8.3) liste, index, value = {0: 'a', 1: 'b'}, 1, c => liste = {0: 'a', 1: 'c', 2: 'b'} ? NOK, obtenu : {0: 'a', 1: 'b'}
+12:08:00 NOK (+8.3) liste, index, value = {0: 'a', 1: 'b'}, 3, c => liste = {0: 'a', 1: 'b', 2: 'c'} ? NOK, obtenu : {0: 'a', 1: 'b', 3: 'c'}
+12:08:00 tests pop()
+12:08:00 OK   +4.2  liste, index = {0: 'a', 1: 'b', 2: 'c'}, 1 => retour = b ? OK
+12:08:00 OK   +4.2  liste, index = {0: 'a', 1: 'b', 2: 'c'}, 1 => liste = {0: 'a', 1: 'c'} ? OK
+12:08:00 OK   +4.2  liste, index = {0: 'a', 1: 'b', 2: 'c'}, 3 => retour = None ? OK
+12:08:00 OK   +4.2  liste, index = {0: 'a', 1: 'b', 2: 'c'}, 3 => liste = {0: 'a', 1: 'b', 2: 'c'} ? OK
+12:08:00 tests remove()
+12:08:00 OK   +8.3  liste, value = {0: 'a', 1: 'b', 2: 'c', 3: 'b'}, b => liste = {0: 'a', 1: 'c', 2: 'b'} ? OK
+12:08:00 OK   +8.3  liste, value = {0: 'a', 1: 'b', 2: 'c', 3: 'b'}, d => liste = {0: 'a', 1: 'b', 2: 'c', 3: 'b'} ? OK
+12:08:00 tests count()
+12:08:00 OK   +4.2  liste, value = {0: 'a', 1: 'b', 2: 'c', 3: 'b'}, b => retour = 2 ? OK
+12:08:00 OK   +4.2  liste, value = {0: 'a', 1: 'b', 2: 'c', 3: 'b'}, d => retour = 0 ? OK
+12:08:00 tests index()
+12:08:00 OK   +2.1  liste, value, start, stop = {0: 'a', 1: 'b', 2: 'c', 3: 'b'}, b, 0, 4 => retour = 1 ? OK
+12:08:00 OK   +2.1  liste, value, start, stop = {0: 'a', 1: 'b', 2: 'c', 3: 'b'}, b, 2, 4 => retour = 3 ? OK
+12:08:00 NOK (+2.1) liste, value, start, stop = {0: 'a', 1: 'b', 2: 'c', 3: 'b'}, b, 0, 1 => retour = -1 ? NOK, obtenu : 1
+12:08:00 OK   +2.1  liste, value, start, stop = {0: 'a', 1: 'b', 2: 'c', 3: 'b'}, d, 0, 4 => retour = -1 ? OK
+12:08:00 tests reverse()
+12:08:00 OK   +4.2  liste = {0: 'a', 1: 'b', 2: 'c'} => liste = {0: 'c', 1: 'b', 2: 'a'} ? OK
+12:08:00 OK   +4.2  liste = {0: 'a', 1: 'b', 2: 'c', 3: 'd'} => liste = {0: 'd', 1: 'c', 2: 'b', 3: 'a'} ? OK
+12:08:00 OK   +4.2  liste = {0: 'a', 1: 'b', 2: 'c', 3: 'b'} => liste = {0: 'b', 1: 'c', 2: 'b', 3: 'a'} ? OK
+12:08:00 OK   +4.2  liste = {} => liste = {} ? OK

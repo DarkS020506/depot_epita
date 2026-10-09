@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# NOM
+#
+# tester - exécute la suite de tests d'un ou plusieurs exercices
+#
+# SYNOPSIS
+#
+# tester [REPERTOIRE] [EXERCICE]...
+#
+# DESCRIPTION
+#
+# <résumer commentaires> 
+# 
+
+# déterminer le répertoire contenant les tests :
+# celui donné en argument, à défaut .Tests
+if [[ -d "$1" ]]; then
+    repertoire="$(realpath "$1")"
+    shift 
+else
+    repertoire="$(pwd)/.Tests"
+    if [[ ! -d "${repertoire}" ]]; then
+        echo "$(basename $0) : pas de répertoire de test" 1>&2
+        exit 1
+    fi
+fi
+
+# déterminer les exercices à tester :
+# ceux donnés en argument, à défaut ceux du barème, à défaut ceux du réperoire de test
+if [[ -n "$@" ]]; then
+    exercices="$@"
+elif [[ -f "${repertoire}/bareme.txt" ]]; then
+    while read exercice points; do
+        exercices="${exercices}${exercice} "
+    done < "${repertoire}/bareme.txt"
+else 
+    exercices="$(find ${repertoire} -name 'test-*' -exec basename {} \; | \
+        cut -d - -f 2-)"
+fi
+if [[ -z "${exercices}" ]]; then
+    echo "$(basename $0) : pas d'exercice à tester" 1>&2
+    exit 1
+fi
+
+# exécuter le test des exercices :
+# test-exercice si fichier, test-exercice/test si répertoire, test à défaut 
+for exercice in ${exercices}; do
+    exercice="${exercice%.*}" # supprime l'eventuel suffixe (completion automatique)
+    test="${repertoire}/test-${exercice}"
+    if [[ ! -e "${test}" ]]; then
+        test="${repertoire}/test"
+    fi
+    if [[ -d "${test}" ]]; then
+        test="${test}/test"
+    fi
+    if [[ ! -x "${test}" ]]; then
+        echo "$(basename $0) : testeur \"${exercice}\" absent" 1>&2
+        continue
+    fi
+    ${test} ${exercice}
+done
+

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh 2> /dev/null || source CAButilitaires.sh
+
+# prologue
+CABinitier surface.py
+
+# tester
+jeux="1.5,2.5=3.75 0,1=erreur 1,0=erreur -1,1=erreur 1,-1=erreur"
+note=$(CABnoteJeu ${jeux})
+for jeu in ${jeux}; do
+    entrees="$(cut -d= -f1 <<< ${jeu})"
+    sorties="$(cut -d= -f2 <<< ${jeu//,/ })"
+    obtenu="$(python surface.py <<< $(echo -e "${entrees//,/\\n}"))"
+    CABverifier ${note} "hauteur largeur = ${entrees//,/ } => ${sorties} ?" "grep -e \"${sorties}$\" <<< \"${obtenu}\"" "${obtenu}"
+done
+
+# épilogue
+CABterminer

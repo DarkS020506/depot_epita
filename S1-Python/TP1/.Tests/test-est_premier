@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh 2> /dev/null || source CAButilitaires.sh
+
+# prologue
+CABinitier est_premier.py
+
+# tester
+jeux="1:False 2:True 3:True 4:False 5:True 6:False 7:True 8:False 9:False 19:True"
+note=$(CABnoteJeu ${jeux})
+for jeu in ${jeux}; do
+    entier="$(cut -d: -f1 <<< ${jeu})"
+    est_premier="$(cut -d: -f2 <<< ${jeu})"
+    obtenu="$(python est_premier.py << stop
+    ${entier}
+stop
+    )"
+    CABverifier ${note} "entier=${entier} => ${est_premier} ?" "grep -e ${est_premier}$ <<< \"${obtenu}\"" "${obtenu}"
+done
+
+# épilogue
+CABterminer

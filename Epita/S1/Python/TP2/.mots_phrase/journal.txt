@@ -1,0 +1,4 @@
+15:06.16 OK   +25  chaine =  =>  ? OK
+15:06.16 OK   +25  chaine =     =>  ? OK
+15:06.16 OK   +25  chaine = Bonjour => Bonjour ? OK
+15:06.16 OK   +25  chaine =  Bonjour !  comment ça va  ? => Bonjour,!,comment,ça,va,? ? OK

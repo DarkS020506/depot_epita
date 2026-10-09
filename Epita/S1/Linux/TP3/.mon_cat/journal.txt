@@ -1,0 +1,6 @@
+11:22.03 OK   +20  ./mon_cat.sh fichier.txt => 1> == [fichier.txt] ? OK
+11:22.03 OK   +20  ./mon_cat.sh < fichier.txt => 1> == [fichier.txt] ? OK
+11:22.03 OK   +20  ./mon_cat.sh fichier.txt fichier.txt => 1> == [fichier.txt + fichier.txt] ? OK
+11:22.03 OK   +15  ./mon_cat.sh -E fichier2.txt => 1> == [fichier2.txt$] ? OK
+11:22.03 OK   +15  ./mon_cat.sh -n fichier.txt => 1> == [%d fichier.txt] ? OK
+11:22.03 OK   +10  ./mon_cat.sh -s fichier.txt fichier.txt => 1> == [fichier.txt + fichier.txt -] ? OK

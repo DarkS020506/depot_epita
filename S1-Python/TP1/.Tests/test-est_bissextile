@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh 2> /dev/null || source CAButilitaires.sh
+
+# prologue
+CABinitier est_bissextile.py
+
+# tester
+jeux="2025:False 2024:True 1900:False 1600:True"
+note=$(CABnoteJeu ${jeux})
+for jeu in ${jeux}; do
+    annee="$(cut -d: -f1 <<< ${jeu})"
+    est_bissextile="$(cut -d: -f2 <<< ${jeu})"
+    obtenu="$(python est_bissextile.py << stop
+    ${annee}
+stop
+    )"
+    CABverifier ${note} "annee=${annee} => ${est_bissextile} ?" "grep -e ${est_premier}$ <<< \"${obtenu}\"" "${obtenu}"
+done
+
+# épilogue
+CABterminer

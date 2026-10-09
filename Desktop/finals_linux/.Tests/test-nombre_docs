@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh
+
+# prologue
+CABinitier ${EXERCICE}.sh
+
+# tests
+# - cas limite pas de fichiers
+CABexecuter 'test pas de .doc' ./${EXERCICE}.sh
+CABverifier 20 './nombre_docs.sh => 1> == 0 ?' '[[ $(cat .out) == "0" ]]' ", obtenu : $(cat .out)"
+
+# - cas normal
+touch fichier{1..5}.doc
+CABexecuter 'test fichier{1..5}.doc' ./${EXERCICE}.sh
+CABverifier 50 './nombre_docs.sh => 1> == 5 ?' '[[ $(cat .out) == "5" ]]' ", obtenu : $(cat .out)"
+CABverifier -10 './nombre_docs.sh => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './nombre_docs.sh => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas d'erreur arguments en trop
+CABexecuter 'test syntaxe incorrecte' ./${EXERCICE}.sh foo
+CABverifier 10 './nombre_docs.sh foo => 1> == "" ?' '[[ -z $(cat .out) ]]' ", obtenu : $(cat .out)"
+CABverifier 10 './nombre_docs.sh foo => 2> == "...nombre_docs.sh..." ?' 'grep -qi nombre_docs.sh .err' ", obtenu : $(cat .err)"
+CABverifier 10 './nombre_docs.sh foo => $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+
+# épilogue
+CABterminer
+

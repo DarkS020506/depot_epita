@@ -1,0 +1,191 @@
+#!/usr/bin/env python3
+
+from CAButilitaires import *
+
+# prologue
+CABinitier(f"{CABexercice()}.py")
+
+# tests append() - 1/6
+parametres = "liste, value"
+jeux = [ \
+    ({}, 'a', None, {0:'a'}), \
+    ({0:'a'}, 'b', None, {0:'a', 1:'b'}) \
+]
+fonction = CABimporter(CABexercice(), "append")
+
+CABjournaliser("tests append()")
+for jeu in jeux:
+    # arguments et attendus
+    liste = dict(jeu[0])
+    value = jeu[1]
+    retour_attendu = jeu[2]
+    liste_attendue = jeu[3]
+    # presentation arguments
+    entrees = f"{jeu[0]}, {jeu[1]}"
+    # appel fonction
+    retour = fonction(liste, value)
+    # véfications
+    CABverifier(-100 / 6 / len(jeux), f"{parametres} = {entrees} => retour = {retour_attendu} ?", \
+        str(retour == retour_attendu), f", obtenu : {retour}")  
+    CABverifier(100 / 6 / len(jeux), f"{parametres} = {entrees} => liste = {liste_attendue} ?", \
+        str(liste == liste_attendue), f", obtenu : {liste}")  
+
+# tests insert() - 1/6
+parametres = "liste, index, value"
+jeux = [ \
+    ({0:'a', 1:'b'}, 1, 'c', None, {0:'a', 1:'c', 2:'b'}), \
+    ({0:'a', 1:'b'}, 3, 'c', None, {0:'a', 1:'b', 2:'c'}) \
+]
+fonction = CABimporter(CABexercice(), "insert")
+
+CABjournaliser("tests insert()")
+for jeu in jeux:
+    # arguments et attendus
+    liste = dict(jeu[0])
+    index = jeu[1]
+    value = jeu[2]
+    retour_attendu = jeu[3]
+    liste_attendue = jeu[4]
+    # presentation arguments
+    entrees = f"{jeu[0]}, {jeu[1]}, {jeu[2]}"
+    # appel fonction
+    retour = fonction(liste, index, value)
+    # véfications
+    CABverifier(-100 / 6 / len(jeux), f"{parametres} = {entrees} => retour = {retour_attendu} ?", \
+        str(retour == retour_attendu), f", obtenu : {retour}")  
+    CABverifier(100 / 6 / len(jeux), f"{parametres} = {entrees} => liste = {liste_attendue} ?", \
+        str(liste == liste_attendue), f", obtenu : {liste}")  
+
+# tests pop() - 1/6
+parametres = "liste, index"
+jeux = [ \
+    ({0:'a', 1:'b', 2:'c'}, 1, 'b', {0:'a', 1:'c'}), \
+    ({0:'a', 1:'b', 2:'c'}, 3, None, {0:'a', 1:'b', 2:'c'}) \
+]
+fonction = CABimporter(CABexercice(), "pop")
+
+CABjournaliser("tests pop()")
+for jeu in jeux:
+    # arguments et attendus
+    liste = dict(jeu[0])
+    index = jeu[1]
+    retour_attendu = jeu[2]
+    liste_attendue = jeu[3]
+    # presentation arguments
+    entrees = f"{jeu[0]}, {jeu[1]}"
+    # appel fonction
+    retour = fonction(liste, index)
+    # véfications
+    CABverifier(100 / 6 / len(jeux) / 2, f"{parametres} = {entrees} => retour = {retour_attendu} ?", \
+        str(retour == retour_attendu), f", obtenu : {retour}")  
+    CABverifier(100 / 6 / len(jeux) / 2, f"{parametres} = {entrees} => liste = {liste_attendue} ?", \
+        str(liste == liste_attendue), f", obtenu : {liste}")  
+
+# tests remove() - 1/6
+parametres = "liste, value"
+jeux = [ \
+    ({0:'a', 1:'b', 2:'c', 3:'b'}, 'b', None, {0:'a', 1:'c', 2:'b'}), \
+    ({0:'a', 1:'b', 2:'c', 3:'b'}, 'd', None, {0:'a', 1:'b', 2:'c', 3:'b'}) \
+]
+fonction = CABimporter(CABexercice(), "remove")
+
+CABjournaliser("tests remove()")
+for jeu in jeux:
+    # arguments et attendus
+    liste = dict(jeu[0])
+    value = jeu[1]
+    retour_attendu = jeu[2]
+    liste_attendue = jeu[3]
+    # presentation arguments
+    entrees = f"{jeu[0]}, {jeu[1]}"
+    # appel fonction
+    retour = fonction(liste, value)
+    # véfications
+    CABverifier(-100 / 6 / len(jeux), f"{parametres} = {entrees} => retour = {retour_attendu} ?", \
+        str(retour == retour_attendu), f", obtenu : {retour}")  
+    CABverifier(100 / 6 / len(jeux), f"{parametres} = {entrees} => liste = {liste_attendue} ?", \
+        str(liste == liste_attendue), f", obtenu : {liste}")  
+
+# tests count() - 1/12
+parametres = "liste, value"
+jeux = [ \
+    ({0:'a', 1:'b', 2:'c', 3:'b'}, 'b', 2, {0:'a', 1:'b', 2:'c', 3:'b'}), \
+    ({0:'a', 1:'b', 2:'c', 3:'b'}, 'd', 0, {0:'a', 1:'b', 2:'c', 3:'b'}) \
+]
+fonction = CABimporter(CABexercice(), "count")
+
+CABjournaliser("tests count()")
+for jeu in jeux:
+    # arguments et attendus
+    liste = dict(jeu[0])
+    value = jeu[1]
+    retour_attendu = jeu[2]
+    liste_attendue = jeu[3]
+    # presentation arguments
+    entrees = f"{jeu[0]}, {jeu[1]}"
+    # appel fonction
+    retour = fonction(liste, value)
+    # véfications
+    CABverifier(100 / 12 / len(jeux), f"{parametres} = {entrees} => retour = {retour_attendu} ?", \
+        str(retour == retour_attendu), f", obtenu : {retour}")  
+    CABverifier(-100 / 12 / len(jeux), f"{parametres} = {entrees} => liste = {liste_attendue} ?", \
+        str(liste == liste_attendue), f", obtenu : {liste}")  
+
+# tests index() - 1/12
+parametres = "liste, value, start, stop"
+jeux = [ \
+    ({0:'a', 1:'b', 2:'c', 3:'b'}, 'b', 0, 4, 1, {0:'a', 1:'b', 2:'c', 3:'b'}), \
+    ({0:'a', 1:'b', 2:'c', 3:'b'}, 'b', 2, 4, 3, {0:'a', 1:'b', 2:'c', 3:'b'}), \
+    ({0:'a', 1:'b', 2:'c', 3:'b'}, 'b', 0, 1, -1, {0:'a', 1:'b', 2:'c', 3:'b'}), \
+    ({0:'a', 1:'b', 2:'c', 3:'b'}, 'd', 0, 4, -1, {0:'a', 1:'b', 2:'c', 3:'b'}) \
+]
+fonction = CABimporter(CABexercice(), "index")
+
+CABjournaliser("tests index()")
+for jeu in jeux:
+    # arguments et attendus
+    liste = dict(jeu[0])
+    value = jeu[1]
+    start = jeu[2]
+    stop = jeu[3]
+    retour_attendu = jeu[4]
+    liste_attendue = jeu[5]
+    # presentation arguments
+    entrees = f"{jeu[0]}, {jeu[1]}, {jeu[2]}, {jeu[3]}"
+    # appel fonction
+    retour = fonction(liste, value, start, stop)
+    # véfications
+    CABverifier(100 / 12 / len(jeux), f"{parametres} = {entrees} => retour = {retour_attendu} ?", \
+        str(retour == retour_attendu), f", obtenu : {retour}")  
+    CABverifier(-100 / 12 / len(jeux), f"{parametres} = {entrees} => liste = {liste_attendue} ?", \
+        str(liste == liste_attendue), f", obtenu : {liste}")  
+
+# tests reverse() - 1/6
+parametres = "liste"
+jeux = [ \
+    ({0:'a', 1:'b', 2:'c'}, None, {0:'c', 1:'b', 2:'a'}), \
+    ({0:'a', 1:'b', 2:'c', 3:'d'}, None, {0:'d', 1:'c', 2:'b', 3:'a'}), \
+    ({0:'a', 1:'b', 2:'c', 3:'b'}, None, {0:'b', 1:'c', 2:'b', 3:'a'}), \
+    ({}, None, {}) \
+]
+fonction = CABimporter(CABexercice(), "reverse")
+
+CABjournaliser("tests reverse()")
+for jeu in jeux:
+    # arguments et attendus
+    liste = dict(jeu[0])
+    retour_attendu = jeu[1]
+    liste_attendue = jeu[2]
+    # presentation arguments
+    entrees = f"{jeu[0]}"
+    # appel fonction
+    retour = fonction(liste)
+    # véfications
+    CABverifier(-100 / 6 / len(jeux), f"{parametres} = {entrees} => retour = {retour_attendu} ?", \
+        str(retour == retour_attendu), f", obtenu : {retour}")  
+    CABverifier(100 / 6 / len(jeux), f"{parametres} = {entrees} => liste = {liste_attendue} ?", \
+        str(liste == liste_attendue), f", obtenu : {liste}")  
+
+# epilogue
+CABterminer()
+

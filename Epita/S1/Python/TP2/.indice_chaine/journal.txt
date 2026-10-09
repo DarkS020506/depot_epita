@@ -1,0 +1,5 @@
+15:06.15 OK   +20  chaine1|chaine2 = | => 0 ? OK
+15:06.15 OK   +20  chaine1|chaine2 = |x => -1 ? OK
+15:06.15 OK   +20  chaine1|chaine2 = bonjour| => 0 ? OK
+15:06.15 OK   +20  chaine1|chaine2 = bonjour|jour => 3 ? OK
+15:06.15 OK   +20  chaine1|chaine2 = bonjour|oj => -1 ? OK

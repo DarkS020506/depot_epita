@@ -1,0 +1,10 @@
+16:32.18 OK   +10  entier=1 => False ? OK
+16:32.18 OK   +10  entier=2 => True ? OK
+16:32.18 OK   +10  entier=3 => True ? OK
+16:32.18 OK   +10  entier=4 => False ? OK
+16:32.18 OK   +10  entier=5 => True ? OK
+16:32.18 OK   +10  entier=6 => False ? OK
+16:32.18 OK   +10  entier=7 => True ? OK
+16:32.18 OK   +10  entier=8 => False ? OK
+16:32.18 OK   +10  entier=9 => False ? OK
+16:32.18 OK   +10  entier=19 => True ? OK

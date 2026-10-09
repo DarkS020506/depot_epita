@@ -1,0 +1,23 @@
+16:32.18 OK   +25  hauteur=2 => 
+XX
+X ? OK
+16:32.18 OK   +25  hauteur=3 => 
+XXX
+XX
+X ? OK
+16:32.18 OK   +25  hauteur=4 => 
+XXXX
+XXX
+XX
+X ? OK
+16:32.18 OK   +25  hauteur=10 => 
+XXXXXXXXXX
+XXXXXXXXX
+XXXXXXXX
+XXXXXXX
+XXXXXX
+XXXXX
+XXXX
+XXX
+XX
+X ? OK

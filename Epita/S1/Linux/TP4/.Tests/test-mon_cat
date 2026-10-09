@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.c
+
+# compilation
+CABcompiler ${EXERCICE}.c
+
+# tests
+# - 1 fichier
+CABexecuter '' ./${EXERCICE} /etc/group
+CABverifier 10 './mon_cat /etc/group => 1> == [/etc/group]' 'diff /etc/group .out' ", obtenu : $(diff /etc/group .out)" 
+CABverifier 05 './mon_cat /etc/group => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier 05 './mon_cat /etc/group => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)" 
+
+# - 0 fichier
+CABexecuter '' ./${EXERCICE} < /etc/passwd
+CABverifier 20 './mon_cat < /etc/passwd => 1> == [/etc/passwd] ?' 'diff /etc/passwd .out' ", obtenu : $(diff /etc/passwd .out)" 
+
+# - 2 fichiers
+cat /etc/group /etc/passwd > .solution
+CABexecuter '' ./${EXERCICE} /etc/group /etc/passwd
+CABverifier 10 './mon_cat /etc/group /etc/passwd => 1> == [/etc/group + /etc/passwd] ?' 'diff .solution .out' ", obtenu : $(diff .solution .out)" 
+
+# - 3 fichiers, dont '-'
+cat /etc/passwd - /etc/group < /etc/hosts > .solution
+CABexecuter '' ./${EXERCICE} /etc/passwd - /etc/group < /etc/hosts
+CABverifier 10 './mon_cat /etc/passwd - /etc/group < /etc/hosts  => 1> == [/etc/group + /etc/hosts + /etc/passwd] ?' 'diff .solution .out' ", obtenu : $(diff .solution .out)" 
+
+# - 3 fichiers, dont 1 erroné
+cat /etc/passwd foo /etc/group < /etc/hosts > .solution 2> /dev/null
+CABexecuter '' ./${EXERCICE} /etc/passwd foo /etc/group < /etc/hosts
+CABverifier 10 './mon_cat /etc/passwd foo /etc/group < /etc/hosts  => 1> == [/etc/group + /etc/passwd] ?' 'diff .solution .out' ", obtenu : $(diff .solution .out)" 
+CABverifier 05 './mon_cat /etc/passwd foo /etc/group < /etc/hosts => 2> == ...mon_cat... ?' 'grep -qie ^mon_cat .err' ", obtenu : $(cat .err)"
+CABverifier 05 './mon_cat /etc/passwd foo /etc/group < /etc/hosts => $? == 1 ?' '(( $(cat .stat) == 1 ))' ", obtenu : $(cat .stat)" 
+
+# - option -E
+export TIMEOUT=10s
+cat -E /etc/passwd > .solution
+CABexecuter '' ./${EXERCICE} -E /etc/passwd
+CABverifier 20 './mon_cat -E /etc/passwd => 1> == [/etc/passwd$] ?' 'diff .solution .out' ", obtenu : $(diff .solution .out)" 
+
+# épilogue
+CABterminer
+

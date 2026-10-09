@@ -1,0 +1,5 @@
+07:56.34 NOK (+20) forme = '    X\n   XX\n  X X\n X  X\nXXXXX' => ('triangle', (5, 5), True) ? NOK, obtenu : "('carre', (5, 5), False)"
+07:56.34 OK   +20  forme = '...\n...\n...' => ('carre', (3, 3), False) ? OK
+07:56.34 OK   +20  forme = 'OOO\nO O\nOOO' => ('carre', (3, 3), True) ? OK
+07:56.34 OK   +20  forme = '%%\n%%\n%%' => ('rectangle', (3, 2), False) ? OK
+07:56.35 NOK (+20) forme = 'XXX\nXYX\nXXX' => None ? NOK, obtenu : "('carre', (3, 3), False)"

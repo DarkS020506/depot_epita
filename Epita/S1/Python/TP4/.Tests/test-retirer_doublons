@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+
+from CAButilitaires import *
+
+# prologue
+CABinitier(f"{CABexercice()}.py")
+
+# tests
+parametres = "liste, en_place"
+jeux = [ \
+    ([3, 2, 2, 1, 1, 3, 2], None, [3, 2, 1]), \
+    ([3, 2, 2, 1, 1, 3, 2], False, [3, 2, 1]) \
+]
+fonction = CABimporter(CABexercice(), CABexercice())
+
+for jeu in jeux:
+    # arguments et attendus
+    liste = list(jeu[0])
+    en_place = jeu[1]
+    attendu = jeu[2]
+    # presentation arguments
+    entrees = f"{jeu[0]}" if en_place is None else f"{jeu[0]}, {jeu[1]}"
+    # appel fonction
+    retour = fonction(liste) if en_place is None else fonction(liste, en_place)
+    # véfications
+    CABverifier(100 / len(jeux) / 2, f"{parametres} = {entrees} => retour = {attendu} ?", \
+        str(retour == attendu), f", obtenu : {retour}")  
+    en_place = True if en_place is None else en_place # valeur par défaut du paramètre
+    CABverifier(100 / len(jeux) / 2, f"{parametres} = {entrees} => en_place correctement géré ?", \
+        str(retour is liste if en_place else liste == jeu[0]))
+
+# epilogue
+CABterminer()
+

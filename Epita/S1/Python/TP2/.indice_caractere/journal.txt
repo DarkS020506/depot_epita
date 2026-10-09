@@ -1,0 +1,4 @@
+15:06.15 OK   +25  chaine|caractere = bonjour| => erreur ? OK
+15:06.15 OK   +25  chaine|caractere = bonjour|ab => erreur ? OK
+15:06.15 OK   +25  chaine|caractere = bonjour|o => 1 ? OK
+15:06.15 OK   +25  chaine|caractere = bonjour|x => -1 ? OK

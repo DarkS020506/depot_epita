@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh 2> /dev/null || source CAButilitaires.sh
+
+# prologue
+CABinitier plus_grand.py
+
+# controle
+if grep -ce 'max.*(.*)' plus_grand.py >/dev/null 2>&1; then
+   CABterminer "fonction max() interdite" 2
+fi
+
+# tester
+jeux="1.0,2.0,3.0=3.0 1.0,3.0,2.0=3.0 2.0,1.0,3.0=3.0 2.0,3.0,1.0=3.0 3.0,1.0,2.0=3.0 3.0,2.0,1.0=3.0 \
+      1.0,1.0,2.0=2.0 1.0,2.0,1.0=2.0 2.0,1.0,1.0=2.0 \
+      1.0,1.0,1.0=1.0 \
+      "
+note=$(CABnoteJeu ${jeux})
+for jeu in ${jeux}; do
+    entrees="$(cut -d= -f1 <<< ${jeu})"
+    sorties="$(cut -d= -f2 <<< ${jeu//,/ })"
+    obtenu="$(python plus_grand.py <<< $(echo -e "${entrees//,/\\n}"))"
+    CABverifier ${note} "a b c = ${entrees//,/ } => ${sorties} ?" "grep -e \"${sorties}$\" <<< \"${obtenu}\"" "${obtenu}"
+done
+
+# épilogue
+CABterminer

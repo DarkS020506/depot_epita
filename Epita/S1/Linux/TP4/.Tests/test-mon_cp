@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.c
+
+# compilation
+CABcompiler ${EXERCICE}.c
+
+# tests
+# - forme SOURCE DEST
+CABexecuter 'Test : ./mon_cp /etc/passwd motsdepasse' ./${EXERCICE} /etc/passwd motsdepasse
+CABverifier 05 '=> 1> == "" ?' '[[ -z $(cat .out) ]]' ", obtenu : $(cat .out)"
+CABverifier 05 '=> 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier 05 '=> $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)" 
+CABverifier 10 'diff /etc/passwd motsdepasse => "" ?' 'diff /etc/passwd motsdepasse' ", obtenu : $(diff /etc/passwd motsdepasse)" 
+
+# - forme SOURCE... DIRECTORY
+(rm -fr repertoire1 ; mkdir repertoire1) &>/dev/null
+CABexecuter 'Test : ./mon_cp /etc/passwd /etc/group repertoire1' ./${EXERCICE} /etc/passwd /etc/group repertoire1
+CABverifier 05 '=> $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)" 
+CABverifier 10 'diff /etc/passwd repertoire1/passwd => "" ?' 'diff /etc/passwd repertoire1/passwd' ", obtenu : $(diff /etc/passwd repertoire1/passwd)" 
+CABverifier 10 'diff /etc/group repertoire1/group => "" ?' 'diff /etc/group repertoire1/group' ", obtenu : $(diff /etc/group repertoire1/group)" 
+
+# - forme SOURCE... DIRECTORY avec erreur
+(rm -fr repertoire2 ; mkdir repertoire2) &>/dev/null
+CABexecuter 'Test : ./mon_cp /etc/passwd /etc/foo repertoire2/' ./${EXERCICE} /etc/passwd /etc/foo repertoire2/
+CABverifier 10 '=> $? == 1 ?' '(( $(cat .stat) == 1 ))' ", obtenu : $(cat .stat)" 
+CABverifier 15 'diff /etc/passwd repertoire2/passwd => "" ?' 'diff /etc/passwd repertoire2/passwd' ", obtenu : $(diff /etc/passwd repertoire2/passwd)" 
+
+# - verfication syntaxe d'appel
+CABexecuter 'Test : ./mon_cp foo' ./${EXERCICE} foo
+CABverifier 10 '=> 2> == ...mon_cp... ?' 'grep -qie mon_cp .err' ", obtenu : $(cat .err)"
+CABverifier 15 '=> $? == 1 ?' '(( $(cat .stat) == 1 ))' ", obtenu : $(cat .stat)" 
+
+# épilogue
+CABterminer
+

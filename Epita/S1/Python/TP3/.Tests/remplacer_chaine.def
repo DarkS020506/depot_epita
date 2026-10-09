@@ -1,0 +1,8 @@
+parametres='s1,s2,s3'
+
+jeux+=( \
+"'bonjour','xyz',''='bonjour'" \
+"'haaaaa !','aa','o'='hooa !'" \
+"'salut !','salut',''=' !'" \
+"'bonjour','r','R'='bonjouR'" \
+)

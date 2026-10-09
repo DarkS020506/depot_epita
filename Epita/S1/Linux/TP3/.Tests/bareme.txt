@@ -1,0 +1,8 @@
+factorielle             2,5
+factorielle_recursif    2,5
+afficher_nom            2,5
+afficher_contenu        2,5
+mon_seq                 2,5
+calculatrice            2,5
+mon_cat                 2,5
+tester_script           2,5

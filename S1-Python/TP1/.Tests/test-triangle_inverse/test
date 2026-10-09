@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh 2> /dev/null || source CAButilitaires.sh
+
+# prologue
+CABinitier triangle.py
+
+# prerequis
+if ! grep -ce "while.*:" triangle.py >/dev/null 2>&1; then
+    echo test a finaliser
+fi
+
+# tests
+jeux="2 3 4 10"
+note=$(CABnoteJeu ${jeux})
+repertoire="$(dirname $0)"
+for jeu in ${jeux}; do
+    hauteur="$(cut -d: -f1 <<< ${jeu})"
+    obtenu="$(python triangle.py <<< ${hauteur})"
+    reference="${repertoire}/triangle${hauteur}.txt"
+    CABverifier ${note} "hauteur=${hauteur} => \n$(cat ${reference}) ?" "grep -e \"$(cat ${reference})$\" <<< \"${obtenu}\"" "${obtenu}"
+done
+
+# épilogue
+CABterminer

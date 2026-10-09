@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.c
+
+# compilation
+CABcompiler ${EXERCICE}.c
+
+# tests
+# - operateur -n
+CABexecuter '' ./${EXERCICE} -n foo
+CABverifier 05 './mon_test -n foo => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+CABverifier 05 './mon_test -n foo => 1> == "" ?' '[[ -z $(cat .out) ]]' ", obtenu : $(cat .out)"
+CABverifier 05 './mon_test -n foo => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABexecuter '' ./${EXERCICE} -n ""
+CABverifier 05 './mon_test -n "" => $? == 1 ?' '(( $(cat .stat) == 1 ))' ", obtenu : $(cat .stat)"
+
+# - operateur -z
+CABexecuter '' ./${EXERCICE} -z foo
+CABverifier 05 './mon_test -z foo => $? == 1 ?' '(( $(cat .stat) == 1 ))' ", obtenu : $(cat .stat)"
+CABexecuter '' ./${EXERCICE} -z ""
+CABverifier 05 './mon_test -z "" => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - operateur =
+CABexecuter '' ./${EXERCICE} foo = foo
+CABverifier 05 './mon_test foo = foo  => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+CABexecuter '' ./${EXERCICE} foo = bar
+CABverifier 05 './mon_test foo = bar "" => $? == 1 ?' '(( $(cat .stat) == 1 ))' ", obtenu : $(cat .stat)"
+
+# - operateur !=
+CABexecuter '' ./${EXERCICE} foo != foo
+CABverifier 05 './mon_test foo != foo  => $? == 1 ?' '(( $(cat .stat) == 1 ))' ", obtenu : $(cat .stat)"
+CABexecuter '' ./${EXERCICE} foo != bar
+CABverifier 05 './mon_test foo != bar "" => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - operateur < 
+CABexecuter '' ./${EXERCICE} bar \< f
+CABverifier 05 './mon_test bar < f => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+CABexecuter '' ./${EXERCICE} f \< bar
+CABverifier 05 './mon_test f < bar => $? == 1 ?' '(( $(cat .stat) == 1 ))' ", obtenu : $(cat .stat)"
+
+# - operateur > 
+CABexecuter '' ./${EXERCICE} qux \> foo
+CABverifier 05 './mon_test qux > foo => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+CABexecuter '' ./${EXERCICE} foo \> qux
+CABverifier 05 './mon_test foo > qux => $? == 1 ?' '(( $(cat .stat) == 1 ))' ", obtenu : $(cat .stat)"
+
+# - cas d'erreur
+CABexecuter '' ./${EXERCICE} foo bar baz qux
+CABverifier 05 './mon_test foo bar baz qux => $? == 2 ?' '(( $(cat .stat) == 2 ))' ", obtenu : $(cat .stat)"
+CABverifier 05 './mon_test foo bar baz qux => >2 == mon_test:... ?' 'grep -qie ^mon_test .err' ", obtenu : $(cat .err)"
+CABexecuter '' ./${EXERCICE} -z foo bar
+CABverifier 05 './mon_test -z foo bar => $? == 2 ?' '(( $(cat .stat) == 2 ))' ", obtenu : $(cat .stat)"
+CABverifier 05 './mon_test -z foo bar => >2 == mon_test:... ?' 'grep -qie ^mon_test .err' ", obtenu : $(cat .err)"
+CABexecuter '' ./${EXERCICE} foo \> 
+CABverifier 05 './mon_test foo > => $? == 2 ?' '(( $(cat .stat) == 2 ))' ", obtenu : $(cat .stat)"
+CABverifier 05 './mon_test foo > => >2 == mon_test:... ?' 'grep -qie ^mon_test .err' ", obtenu : $(cat .err)"
+
+# épilogue
+CABterminer
+

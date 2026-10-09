@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.sh
+
+# tests
+# - cas nominal 100% tests 100%
+echo "echo \$@" > echo.sh ; chmod +x echo.sh
+echo -e "OK 1 => 1\nOK 2 => 2\n2 tests, 100% OK" > .solution
+CABexecuter '' ./${EXERCICE}.sh ./echo.sh 1=1 2=2
+CABverifier  20 './tester_script.sh ./echo.sh 1=1 2=2 => 1> == OK 1 => 1\nOK 2 => 2\n2 tests, 100% OK ?' 'diff -b .solution .out' ", obtenu : $(cat .out)"
+CABverifier -10 './tester_script.sh ./echo.sh 1=1 2=2 => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './tester_script.sh ./echo.sh 1=1 2=2 => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas nominal 50% tests OK
+echo -e "OK 1 => 1\nNOK 2 => 0, obtenu : 2\n2 tests, 50% OK" > .solution
+CABexecuter '' ./${EXERCICE}.sh ./echo.sh 1=1 2=0
+CABverifier  15 './tester_script.sh ./echo.sh 1=1 2=0 => 1> == OK 1 => 1\nNOK 2 => 0, obtenu : 2\n2 tests, 50% OK ?' 'diff -b .solution .out' ", obtenu : $(cat .out)"
+CABverifier -10 './tester_script.sh ./echo.sh 1=1 2=0 => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier  05 './tester_script.sh ./echo.sh 1=1 2=0 => $? == 1 ?' '(( $(cat .stat) == 1 ))' ", obtenu : $(cat .stat)"
+
+# - cas erreur : test mal spécifié
+echo -e "OK 2 => 2\n1 tests, 100% OK" > .solution
+CABexecuter '' ./${EXERCICE}.sh ./echo.sh 1:1 2=2
+CABverifier  10 './tester_script.sh ./echo.sh 1:1 2=2 => 1> == OK 2 => 2\n1 tests, 100% OK ?' 'diff -b .solution .out' ", obtenu : $(cat .out)"
+CABverifier  05 './tester_script.sh ./echo.sh 1:1 2=2 => 2> == ...tester_script.sh... ?' 'grep -qi tester_script.sh .err' ", obtenu : $(cat .err)"
+CABverifier  05 './tester_script.sh ./echo.sh 1:1 2=2 => $? == 2 ?' '(( $(cat .stat) == 2 ))' ", obtenu : $(cat .stat)"
+
+# - cas erreur : script pas executable
+touch pasexec.sh
+CABexecuter '' ./${EXERCICE}.sh ./pasexec.sh 1=1 2=2
+CABverifier  05 './tester_script.sh ./pasexec.sh 1=1 2=2 => 1> "" ?' '[[ -z $(cat .out) ]]' ", obtenu : $(cat .out)"
+CABverifier  10 './tester_script.sh ./pasexec.sh 1=1 2=2 => 2> == ...tester_script.sh... ?' 'grep -qi tester_script.sh .err' ", obtenu : $(cat .err)"
+CABverifier  05 './tester_script.sh ./pasexec.sh 1=1 2=2 => $? == 2 ?' '(( $(cat .stat) == 2 ))' ", obtenu : $(cat .stat)"
+
+# - cas erreur : syntaxe incorrecte
+CABexecuter '' ./${EXERCICE}.sh
+CABverifier  05 './tester_script.sh => 1> "" ?' '[[ -z $(cat .out) ]]' ", obtenu : $(cat .out)"
+CABverifier  10 './tester_script.sh => 2> == ...tester_script.sh... ?' 'grep -qie tester_script.sh .err' ", obtenu : $(cat .err)"
+CABverifier  05 './tester_script.sh => $? == 3 ?' '(( $(cat .stat) == 3 ))' ", obtenu : $(cat .stat)"
+
+# A COMPLETER ulterieurement
+
+# épilogue
+CABterminer
+

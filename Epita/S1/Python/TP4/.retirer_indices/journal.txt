@@ -1,0 +1,8 @@
+09:44:05 OK   +12.5  liste, indices = ['a', 'b', 'c'], {0, 2} => retour = 2 ? OK
+09:44:05 OK   +12.5  liste, indices = ['a', 'b', 'c'], {0, 2} => liste = ['b'] ? OK
+09:44:05 OK   +12.5  liste, indices = ['a', 'b', 'c'], {0, 3} => retour = 1 ? OK
+09:44:05 OK   +12.5  liste, indices = ['a', 'b', 'c'], {0, 3} => liste = ['b', 'c'] ? OK
+09:44:05 OK   +12.5  liste, indices = ['a', 'b', 'c'], {0, 1, 2} => retour = 3 ? OK
+09:44:05 OK   +12.5  liste, indices = ['a', 'b', 'c'], {0, 1, 2} => liste = [] ? OK
+09:44:05 OK   +12.5  liste, indices = ['a', 'b', 'c'], set() => retour = 0 ? OK
+09:44:05 OK   +12.5  liste, indices = ['a', 'b', 'c'], set() => liste = ['a', 'b', 'c'] ? OK

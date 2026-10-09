@@ -1,0 +1,12 @@
+est_bissextile          1,6667
+surface                 1,6667
+plus_grand              1,6667
+ordre                   1,6667
+puissance               1,6667
+est_premier             1,6667
+nombre_chiffres         1,6667
+triangle                1,6667
+triangle_inverse        1,6667
+controler_saisie        1,6667
+stats                   1,6667
+deviner_nombre          1,6667

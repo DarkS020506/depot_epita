@@ -1,0 +1,6 @@
+09:44:05 OK   +16.7  liste, elements = ['a', 'b', 'a', 'c'], {'d', 'a'} => retour = {'a': 2, 'd': 0} ? OK
+09:44:05 NOK (+16.7) liste, elements = ['a', 'b', 'a', 'c'], {'d', 'a'} => liste = ['b', 'c'] ? NOK, obtenu : ['a', 'a']
+09:44:05 OK   +16.7  liste, elements = ['a', 'b', 'a', 'c'], {'b'} => retour = {'b': 1} ? OK
+09:44:05 NOK (+16.7) liste, elements = ['a', 'b', 'a', 'c'], {'b'} => liste = ['a', 'a', 'c'] ? NOK, obtenu : ['a', 'b', 'c']
+09:44:05 OK   +16.7  liste, elements = ['a', 'b', 'a', 'c'], set() => retour = {} ? OK
+09:44:05 OK   +16.7  liste, elements = ['a', 'b', 'a', 'c'], set() => liste = ['a', 'b', 'a', 'c'] ? OK

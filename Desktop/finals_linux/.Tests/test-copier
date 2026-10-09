@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh
+
+# prologue
+CABinitier ${EXERCICE}.c
+
+# compilation
+CABcompiler ${EXERCICE}.c
+
+# tests
+# - cas normal création
+rm -fr /tmp/mdp &>/dev/null
+CABexecuter 'test ./copier /etc/passwd /tmp/mdp' ./${EXERCICE} /etc/passwd /tmp/mdp
+CABverifier  50 '=> /tmp/mdp == /etc/paswwd ?' 'cmp /tmp/mdp /etc/passwd' ", obtenu : $(cat -E /tmp/mdp 2>/dev/null)"
+CABverifier -05 '$? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)" 
+CABverifier -05 '=> 1> == "" ?' '[[ $(cat .out) == "" ]]' ", obtenu : $(cat -E .out)"
+CABverifier -05 '=> 2> == "" ?' '[[ $(cat .err) == "" ]]' ", obtenu : $(cat -E .err)"
+
+# - cas particulier écrasement
+CABexecuter 'test ./copier /etc/passwd /tmp/mdp' ./${EXERCICE} /etc/passwd /tmp/mdp
+CABverifier  10 '=> /tmp/mdp == /etc/paswwd ?' 'cmp /tmp/mdp /etc/passwd' ", obtenu : $(cat -E /tmp/mdp 2>/dev/null)"
+
+# - cas particulier fichier vide
+touch vide.txt
+CABexecuter 'test ./copier vide.txt /tmp/vide.tx' ./${EXERCICE} vide.txt /tmp/vide.txt
+CABverifier  10 '=> /tmp/vide.txt == vide.txt ?' 'cmp /tmp/vide.txt vide.txt' ", obtenu : $(cat -E /tmp/vide.txt 2>/dev/null)"
+
+# - cas erreur syntaxe incorrecte
+CABexecuter 'test ./copier' ./${EXERCICE}
+CABverifier  05 '$? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)" 
+CABverifier  05 '=> 1> == "" ?' '[[ $(cat .out) == "" ]]' ", obtenu : $(cat -E .out)"
+CABverifier  05 '=> 2> == "...copier..." ?' 'cat .err | grep -qe copier' ", obtenu : $(cat -E .err)"
+
+# - cas erreur argument incorrect
+CABexecuter 'test ./copier /etc/group .' ./${EXERCICE} /etc/group .
+CABverifier  05 '$? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)" 
+CABverifier  05 '=> 1> == "" ?' '[[ $(cat .out) == "" ]]' ", obtenu : $(cat -E .out)"
+CABverifier  05 '=> 2> == "...copier...directory" ?' 'cat .err | grep -qe "copier.*directory"' ", obtenu : $(cat -E .err)"
+
+# épilogue
+CABterminer
+

@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.sh
+
+# tests
+# - cas sortie immediate par exit
+echo -e "exit" > .in
+echo -ne "> " > .solution
+CABexecuter '' ./${EXERCICE}.sh < .in
+CABverifier  25 './calculatrice.sh <<< "exit" => 1> == "> " ?' 'diff .solution .out' ", obtenu : $(cat .out)"
+CABverifier -10 './calculatrice.sh <<< "exit" => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './calculatrice.sh <<< "exit" => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas calcul unique et sortie sans exit
+echo -e "1 + 2" > .in
+echo -ne "> 3\n> " > .solution
+CABexecuter '' ./${EXERCICE}.sh < .in
+CABverifier  25 './calculatrice.sh <<< "1 + 2" => 1> == "> 3\n> " ?' 'diff .solution .out' ", obtenu : $(cat .out)"
+#CABverifier -10 './calculatrice.sh <<< "1 + 2" => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+#CABverifier -10 './calculatrice.sh <<< "1 + 2" => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas deux calculs et sortie avec exit
+echo -e "1 + 2\n1 + 2 * 3\nexit" > .in
+echo -ne "> 3\n> 7\n> " > .solution
+CABexecuter '' ./${EXERCICE}.sh < .in
+CABverifier  25 './calculatrice.sh <<< "1 + 2\n1 + 2 * 3\nexit" => 1> == "> 3\n> 7\n> " ?' 'diff .solution .out' ", obtenu : $(cat .out)"
+CABverifier -10 './calculatrice.sh <<< "1 + 2\n1 + 2 * 3\nexit" => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './calculatrice.sh <<< "1 + 2\n1 + 2 * 3\nexit" => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas erreur : syntaxe d'appel
+CABexecuter '' ./${EXERCICE}.sh foo
+CABverifier 15 './calculatrice.sh foo => 2> == ...calculatrice.sh... ?' 'grep -qie calculatrice.sh .err' ", obtenu : $(cat .err)"
+CABverifier 10 './calculatrice.sh foo => $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+
+# A COMPLETER ulterieurement
+
+# épilogue
+CABterminer
+

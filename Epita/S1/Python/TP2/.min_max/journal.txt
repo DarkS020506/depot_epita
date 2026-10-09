@@ -1,0 +1,4 @@
+15:06.14 OK   +25  chaine =  => vide ? OK
+15:06.14 OK   +25  chaine = A => A A ? OK
+15:06.15 OK   +25  chaine = bonjour => b u ? OK
+15:06.15 OK   +25  chaine = Hi! => ! i ? OK

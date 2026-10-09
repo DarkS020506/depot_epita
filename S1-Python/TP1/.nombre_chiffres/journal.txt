@@ -1,0 +1,10 @@
+16:32.18 OK   +10  entier=0 => 1 ? OK
+16:32.18 OK   +10  entier=9 => 1 ? OK
+16:32.18 OK   +10  entier=10 => 2 ? OK
+16:32.18 OK   +10  entier=99 => 2 ? OK
+16:32.18 OK   +10  entier=100 => 3 ? OK
+16:32.18 OK   +10  entier=999 => 3 ? OK
+16:32.18 OK   +10  entier=1000 => 4 ? OK
+16:32.18 OK   +10  entier=1234 => 4 ? OK
+16:32.18 OK   +10  entier=1234567890 => 10 ? OK
+16:32.18 OK   +10  entier=12345678901 => 11 ? OK

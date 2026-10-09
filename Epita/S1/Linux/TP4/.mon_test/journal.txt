@@ -1,0 +1,20 @@
+15:18.08 OK   +05  ./mon_test -n foo => $? == 0 ? OK
+15:18.08 OK   +05  ./mon_test -n foo => 1> == "" ? OK
+15:18.08 OK   +05  ./mon_test -n foo => 2> == "" ? OK
+15:18.08 OK   +05  ./mon_test -n "" => $? == 1 ? OK
+15:18.08 OK   +05  ./mon_test -z foo => $? == 1 ? OK
+15:18.08 OK   +05  ./mon_test -z "" => $? == 0 ? OK
+15:18.08 OK   +05  ./mon_test foo = foo  => $? == 0 ? OK
+15:18.08 OK   +05  ./mon_test foo = bar "" => $? == 1 ? OK
+15:18.08 OK   +05  ./mon_test foo != foo  => $? == 1 ? OK
+15:18.08 OK   +05  ./mon_test foo != bar "" => $? == 0 ? OK
+15:18.08 OK   +05  ./mon_test bar < f => $? == 0 ? OK
+15:18.08 OK   +05  ./mon_test f < bar => $? == 1 ? OK
+15:18.08 OK   +05  ./mon_test qux > foo => $? == 0 ? OK
+15:18.08 OK   +05  ./mon_test foo > qux => $? == 1 ? OK
+15:18.08 OK   +05  ./mon_test foo bar baz qux => $? == 2 ? OK
+15:18.08 OK   +05  ./mon_test foo bar baz qux => >2 == mon_test:... ? OK
+15:18.08 OK   +05  ./mon_test -z foo bar => $? == 2 ? OK
+15:18.08 OK   +05  ./mon_test -z foo bar => >2 == mon_test:... ? OK
+15:18.08 OK   +05  ./mon_test foo > => $? == 2 ? OK
+15:18.08 OK   +05  ./mon_test foo > => >2 == mon_test:... ? OK

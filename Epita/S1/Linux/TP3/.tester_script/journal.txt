@@ -1,0 +1,14 @@
+11:22.03 OK   +20  ./tester_script.sh ./echo.sh 1=1 2=2 => 1> == OK 1 => 1\nOK 2 => 2\n2 tests, 100% OK ? OK
+11:22.03 OK   +15  ./tester_script.sh ./echo.sh 1=1 2=0 => 1> == OK 1 => 1\nNOK 2 => 0, obtenu : 2\n2 tests, 50% OK ? OK
+11:22.03 OK   +05  ./tester_script.sh ./echo.sh 1=1 2=0 => $? == 1 ? OK
+11:22.03 NOK (+10) ./tester_script.sh ./echo.sh 1:1 2=2 => 1> == OK 2 => 2\n1 tests, 100% OK ? NOK, obtenu : tester_script.sh : 1:1 : test mal specifie
+OK 2 => 2
+2 tests, 50% OK
+11:22.03 NOK (+05) ./tester_script.sh ./echo.sh 1:1 2=2 => 2> == ...tester_script.sh... ? NOK, obtenu : 
+11:22.03 OK   +05  ./tester_script.sh ./echo.sh 1:1 2=2 => $? == 2 ? OK
+11:22.03 NOK (+05) ./tester_script.sh ./pasexec.sh 1=1 2=2 => 1> "" ? NOK, obtenu : tester_script.sh : ./pasexec.sh : pas un script executable
+11:22.03 NOK (+10) ./tester_script.sh ./pasexec.sh 1=1 2=2 => 2> == ...tester_script.sh... ? NOK, obtenu : 
+11:22.03 OK   +05  ./tester_script.sh ./pasexec.sh 1=1 2=2 => $? == 2 ? OK
+11:22.03 NOK (+05) ./tester_script.sh => 1> "" ? NOK, obtenu : usage : tester_script.sh SCRIPT TEST...
+11:22.03 NOK (+10) ./tester_script.sh => 2> == ...tester_script.sh... ? NOK, obtenu : 
+11:22.03 OK   +05  ./tester_script.sh => $? == 3 ? OK

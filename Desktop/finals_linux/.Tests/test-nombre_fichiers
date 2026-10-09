@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh
+
+# prologue
+CABinitier ${EXERCICE}.c
+
+# compilation
+CABcompiler ${EXERCICE}.c
+
+# tests
+# - cas normal
+CABexecuter 'test ./nombre_fichiers foo /etc/group bar /etc/passwd' ./${EXERCICE} foo /etc/group bar /etc/passwd
+CABverifier  50 '=> 1> == 2 ?' '[[ $(cat .out) == "2" ]]' ", obtenu : $(cat .out)"
+CABverifier -10 '=> 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 '=> $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas limite aucun fichiers
+CABexecuter 'test ./nombre_fichiers foo bar baz' ./${EXERCICE} foo bar baz
+CABverifier  25 './nombre_fichiers.sh => 1> == 0 ?' '[[ $(cat .out) == "0" ]]' ", obtenu : $(cat .out)"
+
+# - cas limite pas d'arguments
+CABexecuter 'test ./nombre_fichiers' ./${EXERCICE}
+CABverifier  25 './nombre_fichiers.sh => 1> == 0 ?' '[[ $(cat .out) == "0" ]]' ", obtenu : $(cat .out)"
+
+# - respect des bonne pratiques
+CABverifier -30 'respect des bonnes pratiques ?' "cat ${EXERCICE}.c | tr '\n' ' ' | grep -qe 'open(.*).*close(.*)'"
+
+# épilogue
+CABterminer
+

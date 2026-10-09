@@ -1,0 +1,6 @@
+Bonjour,
+Ceci est un fi-
+chier avec les
+stats wc suivantes :
+6 15 70
+

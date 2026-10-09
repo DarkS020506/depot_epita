@@ -1,0 +1,4 @@
+15:06.15 OK   +25  chaine|N|M = |2|3 =>  ? OK
+15:06.15 OK   +25  chaine|N|M = bonjour|0|2 => ronb ? OK
+15:06.15 OK   +25  chaine|N|M = bonjour|2|3 => un ? OK
+15:06.15 OK   +25  chaine|N|M = bonjour|0|1 => ruojnob ? OK

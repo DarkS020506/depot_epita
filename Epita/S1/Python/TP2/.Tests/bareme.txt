@@ -1,0 +1,10 @@
+min_max                 2
+occurrences_caractere   2
+repetition              2
+indice_caractere        2
+extraire_N_M            2
+nombre_voyelles         2
+est_palindrome          2
+est_palindrome_etendu   2
+indice_chaine           2
+mots_phrase             2

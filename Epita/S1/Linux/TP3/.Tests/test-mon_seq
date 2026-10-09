@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.sh
+
+# controle
+if grep -q 'seq ' ${EXERCICE}.sh; then
+    CABterminer "utilisation de seq interdite" 2
+fi
+
+# tests
+# - cas LAST
+seq 10 > .solution
+CABexecuter '' ./${EXERCICE}.sh 10
+CABverifier  20 './mon_seq.sh 10 => 1> == 1\n2\n...10  ?' 'diff .solution .out' ", obtenu : $(cat .out)"
+CABverifier -10 './mon_seq.sh 10 => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './mon_seq.sh 10 => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas FIRST LAST
+seq 5 10 > .solution
+CABexecuter '' ./${EXERCICE}.sh 5 10
+CABverifier  20 './mon_seq.sh 5 10 => 1> == 5\n6\n...10 ?' 'diff .solution .out' ", obtenu : $(diff .solution .out)"
+CABverifier -10 './mon_seq.sh 5 10 => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './mon_seq.sh 5 10 => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas FIRST INCREMENT LAST
+seq 5 2 10 > .solution
+CABexecuter '' ./${EXERCICE}.sh 5 2 10
+CABverifier  20 './mon_seq.sh 5 2 10 => 1> == 5\n7\n9 ?' 'diff .solution .out' ", obtenu : $(diff .solution .out)"
+CABverifier -10 './mon_seq.sh 5 2 10 => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './mon_seq.sh 5 2 10 => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas FIRST INCREMENT LAST descendant
+seq 10 -3 1 > .solution
+CABexecuter '' ./${EXERCICE}.sh 10 -3 1
+CABverifier  10 './mon_seq.sh 10 -3 1 => 1> == 10\n7\n4\n1 ?' 'diff .solution .out' ", obtenu : $(diff .solution .out)"
+CABverifier -10 './mon_seq.sh 10 -3 1 => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './mon_seq.sh 10 -3 1 => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas particulier : increment inversé
+CABexecuter '' ./${EXERCICE}.sh 1 -1 10
+CABverifier  10 './mon_seq.sh 1 -1 10 => 1> == "" ?' '[[ -z $(cat .out) ]]' ", obtenu : $(cat .out)"
+CABverifier -10 './mon_seq.sh 1 -1 10 => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier -10 './mon_seq.sh 1 -1 10 => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas erreur : increment 0
+CABexecuter '' ./${EXERCICE}.sh 1 0 2
+CABverifier 05 './mon_seq.sh 1 0 2 => 2> == ...mon_seq.sh... ?' 'grep -qie mon_seq.sh .err' ", obtenu : $(cat .err)"
+CABverifier 05 './mon_seq.sh 1 0 2 => $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+
+# - cas erreur : pas de parametre
+CABexecuter '' ./${EXERCICE}.sh
+CABverifier 05 './mon_seq.sh => 2> == ...mon_seq.sh... ?' 'grep -qie mon_seq.sh .err' ", obtenu : $(cat .err)"
+CABverifier 05 './mon_seq.sh => $? != 0 ?' '(( $(cat .stat) != 0 ))' ", obtenu : $(cat .stat)"
+
+# A COMPLETER ulterieurement
+
+# épilogue
+CABterminer
+

@@ -1,0 +1,6 @@
+05:06.19 OK   +25  ./afficher_nom.sh => 1> == main.c ? OK
+05:06.19 NOK  -10  ./afficher_nom.sh => 2> == "" ? NOK, obtenu : ./afficher_nom.sh: line 38: continue: only meaningful in a `for', `while', or `until' loop
+05:06.19 OK   +25  ./afficher_nom.sh -e "" -r /tmp -n foo => 1> == /tmp/foo ? OK
+05:06.19 OK   +25  ./afficher_nom.sh -r /var -e log => 1> == /var/main.log ? OK
+05:06.19 NOK (+15) ./afficher_nom.sh -d /var => 2> == afficher_nom.sh... ? NOK, obtenu : 
+05:06.19 OK   +10  ./afficher_nom.sh -d /var => $? != 0 ? OK

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh 2> /dev/null || source CAButilitaires.sh
+
+# prologue
+CABinitier stats.py
+
+# tests
+jeux="0=vide \
+      1.0,0=1.0,1.0,1.0 \
+      -1.0,1.0,0=-1.0,0.0,1.0 \
+      3.0,2.0,1.0,0=1.0,2.0,3.0 \
+      1.0,1.0,1.0,0=1.0,1.0,1.0 \
+     "
+note=$(CABnoteJeu ${jeux})
+for jeu in ${jeux}; do
+    entrees="$(cut -d= -f1 <<< ${jeu})"
+    sorties="$(cut -d= -f2 <<< ${jeu//,/ })"
+    obtenu="$(python stats.py <<< $(echo -e "${entrees//,/\\n}"))"
+    CABverifier ${note} "suite nombres = ${entrees//,/ } => ${sorties} ?" "grep -e \"${sorties}$\" <<< \"${obtenu}\"" "${obtenu}"
+done
+
+# épilogue
+CABterminer

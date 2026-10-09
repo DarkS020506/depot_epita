@@ -1,0 +1,16 @@
+09:44:05 tests ajouter()
+09:44:05 OK   +8.3  ensemble, element = {'a': 2, 'b': 2, 'c': 1}, d => retour = 1 ? OK
+09:44:05 OK   +8.3  ensemble, element = {'a': 2, 'b': 2, 'c': 1}, d => ensemble = {'a': 2, 'b': 2, 'c': 1, 'd': 1} ? OK
+09:44:05 OK   +8.3  ensemble, element = {'a': 2, 'b': 2, 'c': 1, 'd': 1}, b => retour = 3 ? OK
+09:44:05 OK   +8.3  ensemble, element = {'a': 2, 'b': 2, 'c': 1, 'd': 1}, b => ensemble = {'a': 2, 'b': 3, 'c': 1, 'd': 1} ? OK
+09:44:05 tests retirer()
+09:44:05 OK   +5.6  ensemble, element = {'a': 2, 'b': 2, 'c': 1}, b => retour = 1 ? OK
+09:44:05 OK   +5.6  ensemble, element = {'a': 2, 'b': 2, 'c': 1}, b => ensemble = {'a': 2, 'b': 1, 'c': 1} ? OK
+09:44:05 OK   +5.6  ensemble, element = {'a': 2, 'b': 1, 'c': 1}, c => retour = 0 ? OK
+09:44:05 OK   +5.6  ensemble, element = {'a': 2, 'b': 1, 'c': 1}, c => ensemble = {'a': 2, 'b': 1} ? OK
+09:44:05 OK   +5.6  ensemble, element = {'a': 2, 'b': 1}, d => retour = -1 ? OK
+09:44:05 OK   +5.6  ensemble, element = {'a': 2, 'b': 1}, d => ensemble = {'a': 2, 'b': 1} ? OK
+09:44:05 tests union()
+09:44:05 OK   +16.7  ensemble1, ensemble2 = {'a': 2, 'b': 1}, {'b': 1, 'c': 2} => retour = {'a': 2, 'b': 2, 'c': 2} ? OK
+09:44:05 OK   +8.3  ensemble1, ensemble2 = {'a': 2, 'b': 1}, {'b': 1, 'c': 2} => ensemble1 non modifié ? OK
+09:44:05 OK   +8.3  ensemble1, ensemble2 = {'a': 2, 'b': 1}, {'b': 1, 'c': 2} => ensemble2 non modifié ? OK

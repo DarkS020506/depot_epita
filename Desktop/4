@@ -1,0 +1,6 @@
+variable=$1
+produit=1
+for i in $(seq $1); do
+	produit=$((produit*i))
+done
+echo $produit

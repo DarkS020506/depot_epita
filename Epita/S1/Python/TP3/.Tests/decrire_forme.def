@@ -1,0 +1,15 @@
+# spécificités : 
+# - ne pas interpréter (pas echo -e) les entrées, qui contiennent des \n
+# - afficher le résultat par print, pour faire apparaître None en cas d erreur
+programme="echo \"print(${EXERCICE}(\${entrees}))\" | python -i ${EXERCICE}.py 2>/dev/null | tail -1"
+
+parametres='forme'
+
+jeux+=( \
+"'    X\n   XX\n  X X\n X  X\nXXXXX'=('triangle', (5, 5), True)" \
+"'...\n...\n...'=('carre', (3, 3), False)" \
+"'OOO\nO O\nOOO'=('carre', (3, 3), True)" \
+"'%%\n%%\n%%'=('rectangle', (3, 2), False)" \
+"'XXX\nXYX\nXXX'=None" \
+)
+

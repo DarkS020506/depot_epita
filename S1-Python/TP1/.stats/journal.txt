@@ -1,0 +1,5 @@
+16:32.19 OK   +20  suite nombres = 0 => vide ? OK
+16:32.19 OK   +20  suite nombres = 1.0 0 => 1.0 1.0 1.0 ? OK
+16:32.19 OK   +20  suite nombres = -1.0 1.0 0 => -1.0 0.0 1.0 ? OK
+16:32.19 OK   +20  suite nombres = 3.0 2.0 1.0 0 => 1.0 2.0 3.0 ? OK
+16:32.19 OK   +20  suite nombres = 1.0 1.0 1.0 0 => 1.0 1.0 1.0 ? OK

@@ -1,0 +1,9 @@
+11:22.00 OK   +20  ./mon_seq.sh 10 => 1> == 1\n2\n...10  ? OK
+11:22.00 OK   +20  ./mon_seq.sh 5 10 => 1> == 5\n6\n...10 ? OK
+11:22.00 OK   +20  ./mon_seq.sh 5 2 10 => 1> == 5\n7\n9 ? OK
+11:22.01 OK   +10  ./mon_seq.sh 10 -3 1 => 1> == 10\n7\n4\n1 ? OK
+11:22.01 OK   +10  ./mon_seq.sh 1 -1 10 => 1> == "" ? OK
+11:22.01 NOK (+05) ./mon_seq.sh 1 0 2 => 2> == ...mon_seq.sh... ? NOK, obtenu : 
+11:22.01 NOK (+05) ./mon_seq.sh 1 0 2 => $? != 0 ? NOK, obtenu : 0
+11:22.01 OK   +05  ./mon_seq.sh => 2> == ...mon_seq.sh... ? OK
+11:22.01 OK   +05  ./mon_seq.sh => $? != 0 ? OK

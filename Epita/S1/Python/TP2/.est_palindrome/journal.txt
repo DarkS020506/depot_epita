@@ -1,0 +1,4 @@
+09:38.05 OK   +25  chaine =  => True ? OK
+09:38.05 OK   +25  chaine = bob => True ? OK
+09:38.05 OK   +25  chaine = ELLE => True ? OK
+09:38.05 OK   +25  chaine = Bob => False ? OK

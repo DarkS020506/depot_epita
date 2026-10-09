@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh $*
+
+# prologue
+CABinitier ${EXERCICE}.c
+
+# compilation
+CABcompiler ${EXERCICE}.c
+
+# tests
+# - cas sans option normal
+CABexecuter '' ./${EXERCICE} foo bar baz
+CABverifier 10 './mon_echo foo bar baz => 1> == foo bar baz\n ?' '[[ $(tr "\n" "$" < .out) == "foo bar baz$" ]]' ", obtenu : $(cat -E .out)"
+CABverifier 05 './mon_echo foo bar baz => 2> == "" ?' '[[ -z $(cat .err) ]]' ", obtenu : $(cat .err)"
+CABverifier 05 './mon_echo foo bar baz => $? == 0 ?' '(( $(cat .stat) == 0 ))' ", obtenu : $(cat .stat)" 
+
+# - cas sans option particulier : pas d'argument
+CABexecuter '' ./${EXERCICE}
+CABverifier 10 './mon_echo => 1> == \n ?' '[[ $(tr "\n" "$" < .out) == "$" ]]' ", obtenu : $(cat -E .out)"
+
+# - cas option -n, avec et sans argument
+CABexecuter '' ./${EXERCICE} -n qux
+CABverifier 10 './mon_echo -n qux => 1> == qux ?' '[[ $(tr "\n" "$" < .out) == "qux" ]]' ", obtenu : $(cat -E .out)"
+CABexecuter '' ./${EXERCICE} -n 
+CABverifier 10 './mon_echo -n => 1> == "" ?' '[[ $(tr "\n" "$" < .out) == "" ]]' ", obtenu : $(cat -E .out)"
+
+# cas options -E et -e
+CABexecuter '' ./${EXERCICE} -E -e foo
+CABverifier 10 './mon_echo -E -e foo => 1> == foo\n ?' '[[ $(tr "\n" "$" < .out) == "foo$" ]]' ", obtenu : $(cat -E .out)"
+
+# cas particuliers
+CABexecuter '' ./${EXERCICE} foo -n
+CABverifier 10 './mon_echo foo -n => 1> == foo -n\n ?' '[[ $(tr "\n" "$" < .out) == "foo -n$" ]]' ", obtenu : $(cat -E .out)"
+CABexecuter '' ./${EXERCICE} -n -x
+CABverifier 10 './mon_echo -n -x => 1> == -x ?' '[[ $(tr "\n" "$" < .out) == "-x" ]]' ", obtenu : $(cat -E .out)"
+CABexecuter '' ./${EXERCICE} -x -n
+CABverifier 10 './mon_echo -x -n => 1> == -x -n\n ?' '[[ $(tr "\n" "$" < .out) == "-x -n$" ]]' ", obtenu : $(cat -E .out)"
+CABexecuter '' ./${EXERCICE} -n -n foo
+CABverifier 10 './mon_echo -n -n foo => 1> == foo ?' '[[ $(tr "\n" "$" < .out) == "foo" ]]' ", obtenu : $(cat -E .out)"
+
+# épilogue
+CABterminer
+

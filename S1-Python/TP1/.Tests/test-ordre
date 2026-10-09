@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh 2> /dev/null || source CAButilitaires.sh
+
+# prologue
+CABinitier ordre.py
+
+# prerequis
+if grep -ce 'max *(\|sort *(' ordre.py >/dev/null 2>&1; then
+   CABterminer "utilisation de fonctions interdites" 2
+fi
+
+# tests
+jeux="1.0,2.0,3.0=1.0,2.0,3.0 1.0,3.0,2.0=1.0,2.0,3.0 2.0,1.0,3.0=1.0,2.0,3.0 2.0,3.0,1.0=1.0,2.0,3.0 3.0,1.0,2.0=1.0,2.0,3.0 3.0,2.0,1.0=1.0,2.0,3.0 \
+      1.0,1.0,2.0=1.0,1.0,2.0 1.0,2.0,1.0=1.0,1.0,2.0 2.0,1.0,1.0=1.0,1.0,2.0 \
+      1.0,1.0,1.0=1.0,1.0,1.0 \
+     "
+note=$(CABnoteJeu ${jeux})
+for jeu in ${jeux}; do
+    entrees="$(cut -d= -f1 <<< ${jeu})"
+    sorties="$(cut -d= -f2 <<< ${jeu//,/ })"
+    obtenu="$(python ordre.py <<< $(echo -e "${entrees//,/\\n}"))"
+    CABverifier ${note} "a b c = ${entrees//,/ } => ${sorties} ?" "grep -e \"${sorties}$\" <<< \"${obtenu}\"" "${obtenu}"
+done
+
+# épilogue
+CABterminer

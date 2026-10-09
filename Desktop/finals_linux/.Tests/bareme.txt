@@ -1,0 +1,8 @@
+factorielle             2,25
+min_max                 2,25
+afficher_nom            2,25
+nombre_docs             2,25
+mon_echo                2,25
+nombre_fichiers         2,25
+copier                  2,25
+mon_cmp                 2,25

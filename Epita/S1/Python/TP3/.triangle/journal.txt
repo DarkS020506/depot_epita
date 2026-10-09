@@ -1,0 +1,4 @@
+07:56.51 OK   +25  hauteur,est_creux,orientation = 5 => 'X\nXX\nX X\nX  X\nXXXXX' ? OK
+07:56.51 OK   +25  hauteur,est_creux,orientation = 4,False,1 => '   X\n  XX\n XXX\nXXXX' ? OK
+07:56.51 OK   +25  hauteur,est_creux,orientation = 3,True,2 => 'XXX\n XX\n  X' ? OK
+07:56.51 OK   +25  hauteur,est_creux,orientation = 5,False => 'X\nXX\nXXX\nXXXX\nXXXXX' ? OK

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+source .Tests/CAButilitaires.sh 2> /dev/null || source CAButilitaires.sh
+
+# prologue
+CABinitier nombre_chiffres.py
+
+# tests
+jeux="0=1 9=1 10=2 99=2 100=3 999=3 1000=4 1234=4 1234567890=10 12345678901=11"
+note=$(CABnoteJeu ${jeux})
+for jeu in ${jeux}; do 
+    entree="$(cut -d= -f1 <<< ${jeu})"
+    sortie="$(cut -d= -f2 <<< ${jeu})"
+    obtenu="$(python nombre_chiffres.py <<< ${entree})"
+    CABverifier ${note} "entier=${entree} => ${sortie} ?" "grep -e \"${sortie}$\" <<< \"${obtenu}\"" "${obtenu}"
+done
+
+# épilogue
+CABterminer

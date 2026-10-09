@@ -1,0 +1,4 @@
+16:32.17 OK   +25  annee=2025 => False ? OK
+16:32.17 OK   +25  annee=2024 => True ? OK
+16:32.17 OK   +25  annee=1900 => False ? OK
+16:32.17 OK   +25  annee=1600 => True ? OK

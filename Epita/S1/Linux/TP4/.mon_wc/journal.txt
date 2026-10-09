@@ -1,0 +1,8 @@
+15:18.08 OK   +10  ./mon_wc ./fichier1.txt => 1> ==  6 15 70 ./fichier1.txt ? OK
+15:18.08 OK   +05  ./mon_wc ./fichier1.txt => 2> == "" ? OK
+15:18.08 OK   +05  ./mon_wc ./fichier1.txt => $? == 0 ? OK
+15:18.08 OK   +20  ./mon_wc < fichier2.txt => 1> ==  1 7 20 ? OK
+15:18.08 OK   +20  ./mon_wc fichier1.txt fichier2.txt => 1> ==  6 15 70 fichier1.txt\n 1 7 20 ./fichier2.txt\n 7 22 90 total ? OK
+15:18.08 OK   +20  ./mon_wc fichier1.txt - fichier2.txt < fichier1.txt => 1> ==  6 15 70 fichier1.txt\n 6 15 70 -\n 1 7 20 fichier2.txt\n 13 37 160 total ? OK
+15:18.08 NOK (+10) ./mon_wc fichier1.txt foo fichier2.txt => 2> == mon_wc:... ? NOK, obtenu : foo: No such file or directory
+15:18.08 NOK (+10) ./mon_wc fichier1.txt foo fichier2.txt => $? == 1 ? NOK, obtenu : 0

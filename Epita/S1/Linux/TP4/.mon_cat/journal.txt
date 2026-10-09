@@ -1,0 +1,1173 @@
+15:18.08 NOK (+10) ./mon_cat /etc/group => 1> == [/etc/group] NOK, obtenu : 1,88c1,88
+< root:x:0:
+< daemon:x:1:
+< bin:x:2:
+< sys:x:3:
+< adm:x:4:kali
+< tty:x:5:
+< disk:x:6:
+< lp:x:7:
+< mail:x:8:
+< news:x:9:
+< uucp:x:10:
+< man:x:12:
+< proxy:x:13:
+< kmem:x:15:
+< dialout:x:20:kali
+< fax:x:21:
+< voice:x:22:
+< cdrom:x:24:kali
+< floppy:x:25:kali
+< tape:x:26:
+< sudo:x:27:kali
+< audio:x:29:pulse,kali
+< dip:x:30:kali
+< www-data:x:33:
+< backup:x:34:
+< operator:x:37:
+< list:x:38:
+< irc:x:39:
+< src:x:40:
+< shadow:x:42:
+< utmp:x:43:
+< video:x:44:kali
+< sasl:x:45:
+< plugdev:x:46:kali
+< staff:x:50:
+< games:x:60:
+< users:x:100:kali
+< nogroup:x:65534:
+< systemd-journal:x:999:
+< systemd-network:x:998:
+< crontab:x:997:
+< input:x:996:
+< sgx:x:995:
+< kvm:x:994:
+< render:x:993:
+< netdev:x:101:kali
+< systemd-timesync:x:992:
+< messagebus:x:991:
+< _ssh:x:102:
+< scanner:x:103:saned,kali
+< tss:x:104:
+< tcpdump:x:105:
+< plocate:x:106:
+< bluetooth:x:107:kali
+< avahi:x:108:
+< nm-openvpn:x:109:
+< nm-openconnect:x:110:
+< pulse:x:111:
+< pulse-access:x:112:
+< pipewire:x:113:
+< lightdm:x:114:
+< saned:x:115:
+< polkitd:x:989:
+< rtkit:x:116:
+< colord:x:117:
+< kali-trusted:x:118:
+< mysql:x:119:
+< stunnel4:x:988:stunnel4
+< geoclue:x:120:
+< Debian-snmp:x:121:
+< sslh:x:122:
+< ssl-cert:x:123:postgres
+< i2c:x:124:
+< lpadmin:x:125:kali
+< redsocks:x:126:
+< kismet:x:127:
+< _gophish:x:128:
+< sambashare:x:990:
+< winbindd_priv:x:987:
+< redis:x:129:_gvm
+< postgres:x:130:
+< mosquitto:x:131:
+< inetsim:x:132:
+< wireshark:x:133:kali
+< _gvm:x:134:
+< kali:x:1000:
+< kaboxer:x:135:kali
+< vboxsf:x:136:kali
+---
+> root:x:0:$
+> daemon:x:1:$
+> bin:x:2:$
+> sys:x:3:$
+> adm:x:4:kali$
+> tty:x:5:$
+> disk:x:6:$
+> lp:x:7:$
+> mail:x:8:$
+> news:x:9:$
+> uucp:x:10:$
+> man:x:12:$
+> proxy:x:13:$
+> kmem:x:15:$
+> dialout:x:20:kali$
+> fax:x:21:$
+> voice:x:22:$
+> cdrom:x:24:kali$
+> floppy:x:25:kali$
+> tape:x:26:$
+> sudo:x:27:kali$
+> audio:x:29:pulse,kali$
+> dip:x:30:kali$
+> www-data:x:33:$
+> backup:x:34:$
+> operator:x:37:$
+> list:x:38:$
+> irc:x:39:$
+> src:x:40:$
+> shadow:x:42:$
+> utmp:x:43:$
+> video:x:44:kali$
+> sasl:x:45:$
+> plugdev:x:46:kali$
+> staff:x:50:$
+> games:x:60:$
+> users:x:100:kali$
+> nogroup:x:65534:$
+> systemd-journal:x:999:$
+> systemd-network:x:998:$
+> crontab:x:997:$
+> input:x:996:$
+> sgx:x:995:$
+> kvm:x:994:$
+> render:x:993:$
+> netdev:x:101:kali$
+> systemd-timesync:x:992:$
+> messagebus:x:991:$
+> _ssh:x:102:$
+> scanner:x:103:saned,kali$
+> tss:x:104:$
+> tcpdump:x:105:$
+> plocate:x:106:$
+> bluetooth:x:107:kali$
+> avahi:x:108:$
+> nm-openvpn:x:109:$
+> nm-openconnect:x:110:$
+> pulse:x:111:$
+> pulse-access:x:112:$
+> pipewire:x:113:$
+> lightdm:x:114:$
+> saned:x:115:$
+> polkitd:x:989:$
+> rtkit:x:116:$
+> colord:x:117:$
+> kali-trusted:x:118:$
+> mysql:x:119:$
+> stunnel4:x:988:stunnel4$
+> geoclue:x:120:$
+> Debian-snmp:x:121:$
+> sslh:x:122:$
+> ssl-cert:x:123:postgres$
+> i2c:x:124:$
+> lpadmin:x:125:kali$
+> redsocks:x:126:$
+> kismet:x:127:$
+> _gophish:x:128:$
+> sambashare:x:990:$
+> winbindd_priv:x:987:$
+> redis:x:129:_gvm$
+> postgres:x:130:$
+> mosquitto:x:131:$
+> inetsim:x:132:$
+> wireshark:x:133:kali$
+> _gvm:x:134:$
+> kali:x:1000:$
+> kaboxer:x:135:kali$
+> vboxsf:x:136:kali$
+15:18.08 OK   +05  ./mon_cat /etc/group => 2> == "" ? OK
+15:18.08 OK   +05  ./mon_cat /etc/group => $? == 0 ? OK
+15:18.08 NOK (+20) ./mon_cat < /etc/passwd => 1> == [/etc/passwd] ? NOK, obtenu : 1,56c1,56
+< root:x:0:0:root:/root:/usr/bin/zsh
+< daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+< bin:x:2:2:bin:/bin:/usr/sbin/nologin
+< sys:x:3:3:sys:/dev:/usr/sbin/nologin
+< sync:x:4:65534:sync:/bin:/bin/sync
+< games:x:5:60:games:/usr/games:/usr/sbin/nologin
+< man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+< lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+< mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+< news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+< uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+< proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+< www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+< backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+< list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+< irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+< _apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+< nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+< systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+< dhcpcd:x:100:65534:DHCP Client Daemon:/usr/lib/dhcpcd:/bin/false
+< systemd-timesync:x:992:992:systemd Time Synchronization:/:/usr/sbin/nologin
+< messagebus:x:991:991:System Message Bus:/nonexistent:/usr/sbin/nologin
+< tss:x:101:104:TPM software stack:/var/lib/tpm:/bin/false
+< strongswan:x:102:65534::/var/lib/strongswan:/usr/sbin/nologin
+< tcpdump:x:103:105::/nonexistent:/usr/sbin/nologin
+< sshd:x:990:65534:sshd user:/run/sshd:/usr/sbin/nologin
+< _rpc:x:104:65534::/run/rpcbind:/usr/sbin/nologin
+< dnsmasq:x:999:65534:dnsmasq:/var/lib/misc:/usr/sbin/nologin
+< avahi:x:105:108:Avahi mDNS daemon:/run/avahi-daemon:/usr/sbin/nologin
+< nm-openvpn:x:106:109:NetworkManager OpenVPN:/var/lib/openvpn/chroot:/usr/sbin/nologin
+< speech-dispatcher:x:107:29:Speech Dispatcher:/run/speech-dispatcher:/bin/false
+< usbmux:x:108:46:usbmux daemon:/var/lib/usbmux:/usr/sbin/nologin
+< nm-openconnect:x:109:110:NetworkManager OpenConnect plugin:/var/lib/NetworkManager:/usr/sbin/nologin
+< pulse:x:110:111:PulseAudio daemon:/run/pulse:/usr/sbin/nologin
+< lightdm:x:111:114:Light Display Manager:/var/lib/lightdm:/bin/false
+< statd:x:112:65534::/var/lib/nfs:/usr/sbin/nologin
+< saned:x:113:115::/var/lib/saned:/usr/sbin/nologin
+< polkitd:x:989:989:User for polkitd:/:/usr/sbin/nologin
+< rtkit:x:114:116:RealtimeKit:/proc:/usr/sbin/nologin
+< colord:x:115:117:colord colour management daemon:/var/lib/colord:/usr/sbin/nologin
+< mysql:x:116:119:MariaDB Server:/nonexistent:/bin/false
+< stunnel4:x:988:988:stunnel service system account:/var/run/stunnel4:/usr/sbin/nologin
+< geoclue:x:117:120::/var/lib/geoclue:/usr/sbin/nologin
+< Debian-snmp:x:118:121::/var/lib/snmp:/bin/false
+< sslh:x:119:122::/nonexistent:/usr/sbin/nologin
+< cups-pk-helper:x:120:125:user for cups-pk-helper service:/nonexistent:/usr/sbin/nologin
+< redsocks:x:121:126::/var/run/redsocks:/usr/sbin/nologin
+< _gophish:x:122:128::/var/lib/gophish:/usr/sbin/nologin
+< iodine:x:123:65534::/run/iodine:/usr/sbin/nologin
+< miredo:x:124:65534::/var/run/miredo:/usr/sbin/nologin
+< redis:x:125:129::/var/lib/redis:/usr/sbin/nologin
+< postgres:x:126:130:PostgreSQL administrator:/var/lib/postgresql:/bin/bash
+< mosquitto:x:127:131::/var/lib/mosquitto:/usr/sbin/nologin
+< inetsim:x:128:132::/var/lib/inetsim:/usr/sbin/nologin
+< _gvm:x:129:134::/var/lib/openvas:/usr/sbin/nologin
+< kali:x:1000:1000::/home/kali:/usr/bin/zsh
+---
+> root:x:0:0:root:/root:/usr/bin/zsh$
+> daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin$
+> bin:x:2:2:bin:/bin:/usr/sbin/nologin$
+> sys:x:3:3:sys:/dev:/usr/sbin/nologin$
+> sync:x:4:65534:sync:/bin:/bin/sync$
+> games:x:5:60:games:/usr/games:/usr/sbin/nologin$
+> man:x:6:12:man:/var/cache/man:/usr/sbin/nologin$
+> lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin$
+> mail:x:8:8:mail:/var/mail:/usr/sbin/nologin$
+> news:x:9:9:news:/var/spool/news:/usr/sbin/nologin$
+> uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin$
+> proxy:x:13:13:proxy:/bin:/usr/sbin/nologin$
+> www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin$
+> backup:x:34:34:backup:/var/backups:/usr/sbin/nologin$
+> list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin$
+> irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin$
+> _apt:x:42:65534::/nonexistent:/usr/sbin/nologin$
+> nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin$
+> systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin$
+> dhcpcd:x:100:65534:DHCP Client Daemon:/usr/lib/dhcpcd:/bin/false$
+> systemd-timesync:x:992:992:systemd Time Synchronization:/:/usr/sbin/nologin$
+> messagebus:x:991:991:System Message Bus:/nonexistent:/usr/sbin/nologin$
+> tss:x:101:104:TPM software stack:/var/lib/tpm:/bin/false$
+> strongswan:x:102:65534::/var/lib/strongswan:/usr/sbin/nologin$
+> tcpdump:x:103:105::/nonexistent:/usr/sbin/nologin$
+> sshd:x:990:65534:sshd user:/run/sshd:/usr/sbin/nologin$
+> _rpc:x:104:65534::/run/rpcbind:/usr/sbin/nologin$
+> dnsmasq:x:999:65534:dnsmasq:/var/lib/misc:/usr/sbin/nologin$
+> avahi:x:105:108:Avahi mDNS daemon:/run/avahi-daemon:/usr/sbin/nologin$
+> nm-openvpn:x:106:109:NetworkManager OpenVPN:/var/lib/openvpn/chroot:/usr/sbin/nologin$
+> speech-dispatcher:x:107:29:Speech Dispatcher:/run/speech-dispatcher:/bin/false$
+> usbmux:x:108:46:usbmux daemon:/var/lib/usbmux:/usr/sbin/nologin$
+> nm-openconnect:x:109:110:NetworkManager OpenConnect plugin:/var/lib/NetworkManager:/usr/sbin/nologin$
+> pulse:x:110:111:PulseAudio daemon:/run/pulse:/usr/sbin/nologin$
+> lightdm:x:111:114:Light Display Manager:/var/lib/lightdm:/bin/false$
+> statd:x:112:65534::/var/lib/nfs:/usr/sbin/nologin$
+> saned:x:113:115::/var/lib/saned:/usr/sbin/nologin$
+> polkitd:x:989:989:User for polkitd:/:/usr/sbin/nologin$
+> rtkit:x:114:116:RealtimeKit:/proc:/usr/sbin/nologin$
+> colord:x:115:117:colord colour management daemon:/var/lib/colord:/usr/sbin/nologin$
+> mysql:x:116:119:MariaDB Server:/nonexistent:/bin/false$
+> stunnel4:x:988:988:stunnel service system account:/var/run/stunnel4:/usr/sbin/nologin$
+> geoclue:x:117:120::/var/lib/geoclue:/usr/sbin/nologin$
+> Debian-snmp:x:118:121::/var/lib/snmp:/bin/false$
+> sslh:x:119:122::/nonexistent:/usr/sbin/nologin$
+> cups-pk-helper:x:120:125:user for cups-pk-helper service:/nonexistent:/usr/sbin/nologin$
+> redsocks:x:121:126::/var/run/redsocks:/usr/sbin/nologin$
+> _gophish:x:122:128::/var/lib/gophish:/usr/sbin/nologin$
+> iodine:x:123:65534::/run/iodine:/usr/sbin/nologin$
+> miredo:x:124:65534::/var/run/miredo:/usr/sbin/nologin$
+> redis:x:125:129::/var/lib/redis:/usr/sbin/nologin$
+> postgres:x:126:130:PostgreSQL administrator:/var/lib/postgresql:/bin/bash$
+> mosquitto:x:127:131::/var/lib/mosquitto:/usr/sbin/nologin$
+> inetsim:x:128:132::/var/lib/inetsim:/usr/sbin/nologin$
+> _gvm:x:129:134::/var/lib/openvas:/usr/sbin/nologin$
+> kali:x:1000:1000::/home/kali:/usr/bin/zsh$
+15:18.08 NOK (+10) ./mon_cat /etc/group /etc/passwd => 1> == [/etc/group + /etc/passwd] ? NOK, obtenu : 1,144c1,144
+< root:x:0:
+< daemon:x:1:
+< bin:x:2:
+< sys:x:3:
+< adm:x:4:kali
+< tty:x:5:
+< disk:x:6:
+< lp:x:7:
+< mail:x:8:
+< news:x:9:
+< uucp:x:10:
+< man:x:12:
+< proxy:x:13:
+< kmem:x:15:
+< dialout:x:20:kali
+< fax:x:21:
+< voice:x:22:
+< cdrom:x:24:kali
+< floppy:x:25:kali
+< tape:x:26:
+< sudo:x:27:kali
+< audio:x:29:pulse,kali
+< dip:x:30:kali
+< www-data:x:33:
+< backup:x:34:
+< operator:x:37:
+< list:x:38:
+< irc:x:39:
+< src:x:40:
+< shadow:x:42:
+< utmp:x:43:
+< video:x:44:kali
+< sasl:x:45:
+< plugdev:x:46:kali
+< staff:x:50:
+< games:x:60:
+< users:x:100:kali
+< nogroup:x:65534:
+< systemd-journal:x:999:
+< systemd-network:x:998:
+< crontab:x:997:
+< input:x:996:
+< sgx:x:995:
+< kvm:x:994:
+< render:x:993:
+< netdev:x:101:kali
+< systemd-timesync:x:992:
+< messagebus:x:991:
+< _ssh:x:102:
+< scanner:x:103:saned,kali
+< tss:x:104:
+< tcpdump:x:105:
+< plocate:x:106:
+< bluetooth:x:107:kali
+< avahi:x:108:
+< nm-openvpn:x:109:
+< nm-openconnect:x:110:
+< pulse:x:111:
+< pulse-access:x:112:
+< pipewire:x:113:
+< lightdm:x:114:
+< saned:x:115:
+< polkitd:x:989:
+< rtkit:x:116:
+< colord:x:117:
+< kali-trusted:x:118:
+< mysql:x:119:
+< stunnel4:x:988:stunnel4
+< geoclue:x:120:
+< Debian-snmp:x:121:
+< sslh:x:122:
+< ssl-cert:x:123:postgres
+< i2c:x:124:
+< lpadmin:x:125:kali
+< redsocks:x:126:
+< kismet:x:127:
+< _gophish:x:128:
+< sambashare:x:990:
+< winbindd_priv:x:987:
+< redis:x:129:_gvm
+< postgres:x:130:
+< mosquitto:x:131:
+< inetsim:x:132:
+< wireshark:x:133:kali
+< _gvm:x:134:
+< kali:x:1000:
+< kaboxer:x:135:kali
+< vboxsf:x:136:kali
+< root:x:0:0:root:/root:/usr/bin/zsh
+< daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+< bin:x:2:2:bin:/bin:/usr/sbin/nologin
+< sys:x:3:3:sys:/dev:/usr/sbin/nologin
+< sync:x:4:65534:sync:/bin:/bin/sync
+< games:x:5:60:games:/usr/games:/usr/sbin/nologin
+< man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+< lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+< mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+< news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+< uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+< proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+< www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+< backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+< list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+< irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+< _apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+< nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+< systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+< dhcpcd:x:100:65534:DHCP Client Daemon:/usr/lib/dhcpcd:/bin/false
+< systemd-timesync:x:992:992:systemd Time Synchronization:/:/usr/sbin/nologin
+< messagebus:x:991:991:System Message Bus:/nonexistent:/usr/sbin/nologin
+< tss:x:101:104:TPM software stack:/var/lib/tpm:/bin/false
+< strongswan:x:102:65534::/var/lib/strongswan:/usr/sbin/nologin
+< tcpdump:x:103:105::/nonexistent:/usr/sbin/nologin
+< sshd:x:990:65534:sshd user:/run/sshd:/usr/sbin/nologin
+< _rpc:x:104:65534::/run/rpcbind:/usr/sbin/nologin
+< dnsmasq:x:999:65534:dnsmasq:/var/lib/misc:/usr/sbin/nologin
+< avahi:x:105:108:Avahi mDNS daemon:/run/avahi-daemon:/usr/sbin/nologin
+< nm-openvpn:x:106:109:NetworkManager OpenVPN:/var/lib/openvpn/chroot:/usr/sbin/nologin
+< speech-dispatcher:x:107:29:Speech Dispatcher:/run/speech-dispatcher:/bin/false
+< usbmux:x:108:46:usbmux daemon:/var/lib/usbmux:/usr/sbin/nologin
+< nm-openconnect:x:109:110:NetworkManager OpenConnect plugin:/var/lib/NetworkManager:/usr/sbin/nologin
+< pulse:x:110:111:PulseAudio daemon:/run/pulse:/usr/sbin/nologin
+< lightdm:x:111:114:Light Display Manager:/var/lib/lightdm:/bin/false
+< statd:x:112:65534::/var/lib/nfs:/usr/sbin/nologin
+< saned:x:113:115::/var/lib/saned:/usr/sbin/nologin
+< polkitd:x:989:989:User for polkitd:/:/usr/sbin/nologin
+< rtkit:x:114:116:RealtimeKit:/proc:/usr/sbin/nologin
+< colord:x:115:117:colord colour management daemon:/var/lib/colord:/usr/sbin/nologin
+< mysql:x:116:119:MariaDB Server:/nonexistent:/bin/false
+< stunnel4:x:988:988:stunnel service system account:/var/run/stunnel4:/usr/sbin/nologin
+< geoclue:x:117:120::/var/lib/geoclue:/usr/sbin/nologin
+< Debian-snmp:x:118:121::/var/lib/snmp:/bin/false
+< sslh:x:119:122::/nonexistent:/usr/sbin/nologin
+< cups-pk-helper:x:120:125:user for cups-pk-helper service:/nonexistent:/usr/sbin/nologin
+< redsocks:x:121:126::/var/run/redsocks:/usr/sbin/nologin
+< _gophish:x:122:128::/var/lib/gophish:/usr/sbin/nologin
+< iodine:x:123:65534::/run/iodine:/usr/sbin/nologin
+< miredo:x:124:65534::/var/run/miredo:/usr/sbin/nologin
+< redis:x:125:129::/var/lib/redis:/usr/sbin/nologin
+< postgres:x:126:130:PostgreSQL administrator:/var/lib/postgresql:/bin/bash
+< mosquitto:x:127:131::/var/lib/mosquitto:/usr/sbin/nologin
+< inetsim:x:128:132::/var/lib/inetsim:/usr/sbin/nologin
+< _gvm:x:129:134::/var/lib/openvas:/usr/sbin/nologin
+< kali:x:1000:1000::/home/kali:/usr/bin/zsh
+---
+> root:x:0:$
+> daemon:x:1:$
+> bin:x:2:$
+> sys:x:3:$
+> adm:x:4:kali$
+> tty:x:5:$
+> disk:x:6:$
+> lp:x:7:$
+> mail:x:8:$
+> news:x:9:$
+> uucp:x:10:$
+> man:x:12:$
+> proxy:x:13:$
+> kmem:x:15:$
+> dialout:x:20:kali$
+> fax:x:21:$
+> voice:x:22:$
+> cdrom:x:24:kali$
+> floppy:x:25:kali$
+> tape:x:26:$
+> sudo:x:27:kali$
+> audio:x:29:pulse,kali$
+> dip:x:30:kali$
+> www-data:x:33:$
+> backup:x:34:$
+> operator:x:37:$
+> list:x:38:$
+> irc:x:39:$
+> src:x:40:$
+> shadow:x:42:$
+> utmp:x:43:$
+> video:x:44:kali$
+> sasl:x:45:$
+> plugdev:x:46:kali$
+> staff:x:50:$
+> games:x:60:$
+> users:x:100:kali$
+> nogroup:x:65534:$
+> systemd-journal:x:999:$
+> systemd-network:x:998:$
+> crontab:x:997:$
+> input:x:996:$
+> sgx:x:995:$
+> kvm:x:994:$
+> render:x:993:$
+> netdev:x:101:kali$
+> systemd-timesync:x:992:$
+> messagebus:x:991:$
+> _ssh:x:102:$
+> scanner:x:103:saned,kali$
+> tss:x:104:$
+> tcpdump:x:105:$
+> plocate:x:106:$
+> bluetooth:x:107:kali$
+> avahi:x:108:$
+> nm-openvpn:x:109:$
+> nm-openconnect:x:110:$
+> pulse:x:111:$
+> pulse-access:x:112:$
+> pipewire:x:113:$
+> lightdm:x:114:$
+> saned:x:115:$
+> polkitd:x:989:$
+> rtkit:x:116:$
+> colord:x:117:$
+> kali-trusted:x:118:$
+> mysql:x:119:$
+> stunnel4:x:988:stunnel4$
+> geoclue:x:120:$
+> Debian-snmp:x:121:$
+> sslh:x:122:$
+> ssl-cert:x:123:postgres$
+> i2c:x:124:$
+> lpadmin:x:125:kali$
+> redsocks:x:126:$
+> kismet:x:127:$
+> _gophish:x:128:$
+> sambashare:x:990:$
+> winbindd_priv:x:987:$
+> redis:x:129:_gvm$
+> postgres:x:130:$
+> mosquitto:x:131:$
+> inetsim:x:132:$
+> wireshark:x:133:kali$
+> _gvm:x:134:$
+> kali:x:1000:$
+> kaboxer:x:135:kali$
+> vboxsf:x:136:kali$
+> root:x:0:0:root:/root:/usr/bin/zsh$
+> daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin$
+> bin:x:2:2:bin:/bin:/usr/sbin/nologin$
+> sys:x:3:3:sys:/dev:/usr/sbin/nologin$
+> sync:x:4:65534:sync:/bin:/bin/sync$
+> games:x:5:60:games:/usr/games:/usr/sbin/nologin$
+> man:x:6:12:man:/var/cache/man:/usr/sbin/nologin$
+> lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin$
+> mail:x:8:8:mail:/var/mail:/usr/sbin/nologin$
+> news:x:9:9:news:/var/spool/news:/usr/sbin/nologin$
+> uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin$
+> proxy:x:13:13:proxy:/bin:/usr/sbin/nologin$
+> www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin$
+> backup:x:34:34:backup:/var/backups:/usr/sbin/nologin$
+> list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin$
+> irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin$
+> _apt:x:42:65534::/nonexistent:/usr/sbin/nologin$
+> nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin$
+> systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin$
+> dhcpcd:x:100:65534:DHCP Client Daemon:/usr/lib/dhcpcd:/bin/false$
+> systemd-timesync:x:992:992:systemd Time Synchronization:/:/usr/sbin/nologin$
+> messagebus:x:991:991:System Message Bus:/nonexistent:/usr/sbin/nologin$
+> tss:x:101:104:TPM software stack:/var/lib/tpm:/bin/false$
+> strongswan:x:102:65534::/var/lib/strongswan:/usr/sbin/nologin$
+> tcpdump:x:103:105::/nonexistent:/usr/sbin/nologin$
+> sshd:x:990:65534:sshd user:/run/sshd:/usr/sbin/nologin$
+> _rpc:x:104:65534::/run/rpcbind:/usr/sbin/nologin$
+> dnsmasq:x:999:65534:dnsmasq:/var/lib/misc:/usr/sbin/nologin$
+> avahi:x:105:108:Avahi mDNS daemon:/run/avahi-daemon:/usr/sbin/nologin$
+> nm-openvpn:x:106:109:NetworkManager OpenVPN:/var/lib/openvpn/chroot:/usr/sbin/nologin$
+> speech-dispatcher:x:107:29:Speech Dispatcher:/run/speech-dispatcher:/bin/false$
+> usbmux:x:108:46:usbmux daemon:/var/lib/usbmux:/usr/sbin/nologin$
+> nm-openconnect:x:109:110:NetworkManager OpenConnect plugin:/var/lib/NetworkManager:/usr/sbin/nologin$
+> pulse:x:110:111:PulseAudio daemon:/run/pulse:/usr/sbin/nologin$
+> lightdm:x:111:114:Light Display Manager:/var/lib/lightdm:/bin/false$
+> statd:x:112:65534::/var/lib/nfs:/usr/sbin/nologin$
+> saned:x:113:115::/var/lib/saned:/usr/sbin/nologin$
+> polkitd:x:989:989:User for polkitd:/:/usr/sbin/nologin$
+> rtkit:x:114:116:RealtimeKit:/proc:/usr/sbin/nologin$
+> colord:x:115:117:colord colour management daemon:/var/lib/colord:/usr/sbin/nologin$
+> mysql:x:116:119:MariaDB Server:/nonexistent:/bin/false$
+> stunnel4:x:988:988:stunnel service system account:/var/run/stunnel4:/usr/sbin/nologin$
+> geoclue:x:117:120::/var/lib/geoclue:/usr/sbin/nologin$
+> Debian-snmp:x:118:121::/var/lib/snmp:/bin/false$
+> sslh:x:119:122::/nonexistent:/usr/sbin/nologin$
+> cups-pk-helper:x:120:125:user for cups-pk-helper service:/nonexistent:/usr/sbin/nologin$
+> redsocks:x:121:126::/var/run/redsocks:/usr/sbin/nologin$
+> _gophish:x:122:128::/var/lib/gophish:/usr/sbin/nologin$
+> iodine:x:123:65534::/run/iodine:/usr/sbin/nologin$
+> miredo:x:124:65534::/var/run/miredo:/usr/sbin/nologin$
+> redis:x:125:129::/var/lib/redis:/usr/sbin/nologin$
+> postgres:x:126:130:PostgreSQL administrator:/var/lib/postgresql:/bin/bash$
+> mosquitto:x:127:131::/var/lib/mosquitto:/usr/sbin/nologin$
+> inetsim:x:128:132::/var/lib/inetsim:/usr/sbin/nologin$
+> _gvm:x:129:134::/var/lib/openvas:/usr/sbin/nologin$
+> kali:x:1000:1000::/home/kali:/usr/bin/zsh$
+15:18.08 NOK (+10) ./mon_cat /etc/passwd - /etc/group < /etc/hosts  => 1> == [/etc/group + /etc/hosts + /etc/passwd] ? NOK, obtenu : 1,150c1,144
+< root:x:0:0:root:/root:/usr/bin/zsh
+< daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+< bin:x:2:2:bin:/bin:/usr/sbin/nologin
+< sys:x:3:3:sys:/dev:/usr/sbin/nologin
+< sync:x:4:65534:sync:/bin:/bin/sync
+< games:x:5:60:games:/usr/games:/usr/sbin/nologin
+< man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+< lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+< mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+< news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+< uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+< proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+< www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+< backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+< list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+< irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+< _apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+< nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+< systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+< dhcpcd:x:100:65534:DHCP Client Daemon:/usr/lib/dhcpcd:/bin/false
+< systemd-timesync:x:992:992:systemd Time Synchronization:/:/usr/sbin/nologin
+< messagebus:x:991:991:System Message Bus:/nonexistent:/usr/sbin/nologin
+< tss:x:101:104:TPM software stack:/var/lib/tpm:/bin/false
+< strongswan:x:102:65534::/var/lib/strongswan:/usr/sbin/nologin
+< tcpdump:x:103:105::/nonexistent:/usr/sbin/nologin
+< sshd:x:990:65534:sshd user:/run/sshd:/usr/sbin/nologin
+< _rpc:x:104:65534::/run/rpcbind:/usr/sbin/nologin
+< dnsmasq:x:999:65534:dnsmasq:/var/lib/misc:/usr/sbin/nologin
+< avahi:x:105:108:Avahi mDNS daemon:/run/avahi-daemon:/usr/sbin/nologin
+< nm-openvpn:x:106:109:NetworkManager OpenVPN:/var/lib/openvpn/chroot:/usr/sbin/nologin
+< speech-dispatcher:x:107:29:Speech Dispatcher:/run/speech-dispatcher:/bin/false
+< usbmux:x:108:46:usbmux daemon:/var/lib/usbmux:/usr/sbin/nologin
+< nm-openconnect:x:109:110:NetworkManager OpenConnect plugin:/var/lib/NetworkManager:/usr/sbin/nologin
+< pulse:x:110:111:PulseAudio daemon:/run/pulse:/usr/sbin/nologin
+< lightdm:x:111:114:Light Display Manager:/var/lib/lightdm:/bin/false
+< statd:x:112:65534::/var/lib/nfs:/usr/sbin/nologin
+< saned:x:113:115::/var/lib/saned:/usr/sbin/nologin
+< polkitd:x:989:989:User for polkitd:/:/usr/sbin/nologin
+< rtkit:x:114:116:RealtimeKit:/proc:/usr/sbin/nologin
+< colord:x:115:117:colord colour management daemon:/var/lib/colord:/usr/sbin/nologin
+< mysql:x:116:119:MariaDB Server:/nonexistent:/bin/false
+< stunnel4:x:988:988:stunnel service system account:/var/run/stunnel4:/usr/sbin/nologin
+< geoclue:x:117:120::/var/lib/geoclue:/usr/sbin/nologin
+< Debian-snmp:x:118:121::/var/lib/snmp:/bin/false
+< sslh:x:119:122::/nonexistent:/usr/sbin/nologin
+< cups-pk-helper:x:120:125:user for cups-pk-helper service:/nonexistent:/usr/sbin/nologin
+< redsocks:x:121:126::/var/run/redsocks:/usr/sbin/nologin
+< _gophish:x:122:128::/var/lib/gophish:/usr/sbin/nologin
+< iodine:x:123:65534::/run/iodine:/usr/sbin/nologin
+< miredo:x:124:65534::/var/run/miredo:/usr/sbin/nologin
+< redis:x:125:129::/var/lib/redis:/usr/sbin/nologin
+< postgres:x:126:130:PostgreSQL administrator:/var/lib/postgresql:/bin/bash
+< mosquitto:x:127:131::/var/lib/mosquitto:/usr/sbin/nologin
+< inetsim:x:128:132::/var/lib/inetsim:/usr/sbin/nologin
+< _gvm:x:129:134::/var/lib/openvas:/usr/sbin/nologin
+< kali:x:1000:1000::/home/kali:/usr/bin/zsh
+< 127.0.0.1	localhost
+< 127.0.1.1	kali
+< ::1		localhost ip6-localhost ip6-loopback
+< ff02::1		ip6-allnodes
+< ff02::2		ip6-allrouters
+< 
+< root:x:0:
+< daemon:x:1:
+< bin:x:2:
+< sys:x:3:
+< adm:x:4:kali
+< tty:x:5:
+< disk:x:6:
+< lp:x:7:
+< mail:x:8:
+< news:x:9:
+< uucp:x:10:
+< man:x:12:
+< proxy:x:13:
+< kmem:x:15:
+< dialout:x:20:kali
+< fax:x:21:
+< voice:x:22:
+< cdrom:x:24:kali
+< floppy:x:25:kali
+< tape:x:26:
+< sudo:x:27:kali
+< audio:x:29:pulse,kali
+< dip:x:30:kali
+< www-data:x:33:
+< backup:x:34:
+< operator:x:37:
+< list:x:38:
+< irc:x:39:
+< src:x:40:
+< shadow:x:42:
+< utmp:x:43:
+< video:x:44:kali
+< sasl:x:45:
+< plugdev:x:46:kali
+< staff:x:50:
+< games:x:60:
+< users:x:100:kali
+< nogroup:x:65534:
+< systemd-journal:x:999:
+< systemd-network:x:998:
+< crontab:x:997:
+< input:x:996:
+< sgx:x:995:
+< kvm:x:994:
+< render:x:993:
+< netdev:x:101:kali
+< systemd-timesync:x:992:
+< messagebus:x:991:
+< _ssh:x:102:
+< scanner:x:103:saned,kali
+< tss:x:104:
+< tcpdump:x:105:
+< plocate:x:106:
+< bluetooth:x:107:kali
+< avahi:x:108:
+< nm-openvpn:x:109:
+< nm-openconnect:x:110:
+< pulse:x:111:
+< pulse-access:x:112:
+< pipewire:x:113:
+< lightdm:x:114:
+< saned:x:115:
+< polkitd:x:989:
+< rtkit:x:116:
+< colord:x:117:
+< kali-trusted:x:118:
+< mysql:x:119:
+< stunnel4:x:988:stunnel4
+< geoclue:x:120:
+< Debian-snmp:x:121:
+< sslh:x:122:
+< ssl-cert:x:123:postgres
+< i2c:x:124:
+< lpadmin:x:125:kali
+< redsocks:x:126:
+< kismet:x:127:
+< _gophish:x:128:
+< sambashare:x:990:
+< winbindd_priv:x:987:
+< redis:x:129:_gvm
+< postgres:x:130:
+< mosquitto:x:131:
+< inetsim:x:132:
+< wireshark:x:133:kali
+< _gvm:x:134:
+< kali:x:1000:
+< kaboxer:x:135:kali
+< vboxsf:x:136:kali
+---
+> root:x:0:0:root:/root:/usr/bin/zsh$
+> daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin$
+> bin:x:2:2:bin:/bin:/usr/sbin/nologin$
+> sys:x:3:3:sys:/dev:/usr/sbin/nologin$
+> sync:x:4:65534:sync:/bin:/bin/sync$
+> games:x:5:60:games:/usr/games:/usr/sbin/nologin$
+> man:x:6:12:man:/var/cache/man:/usr/sbin/nologin$
+> lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin$
+> mail:x:8:8:mail:/var/mail:/usr/sbin/nologin$
+> news:x:9:9:news:/var/spool/news:/usr/sbin/nologin$
+> uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin$
+> proxy:x:13:13:proxy:/bin:/usr/sbin/nologin$
+> www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin$
+> backup:x:34:34:backup:/var/backups:/usr/sbin/nologin$
+> list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin$
+> irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin$
+> _apt:x:42:65534::/nonexistent:/usr/sbin/nologin$
+> nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin$
+> systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin$
+> dhcpcd:x:100:65534:DHCP Client Daemon:/usr/lib/dhcpcd:/bin/false$
+> systemd-timesync:x:992:992:systemd Time Synchronization:/:/usr/sbin/nologin$
+> messagebus:x:991:991:System Message Bus:/nonexistent:/usr/sbin/nologin$
+> tss:x:101:104:TPM software stack:/var/lib/tpm:/bin/false$
+> strongswan:x:102:65534::/var/lib/strongswan:/usr/sbin/nologin$
+> tcpdump:x:103:105::/nonexistent:/usr/sbin/nologin$
+> sshd:x:990:65534:sshd user:/run/sshd:/usr/sbin/nologin$
+> _rpc:x:104:65534::/run/rpcbind:/usr/sbin/nologin$
+> dnsmasq:x:999:65534:dnsmasq:/var/lib/misc:/usr/sbin/nologin$
+> avahi:x:105:108:Avahi mDNS daemon:/run/avahi-daemon:/usr/sbin/nologin$
+> nm-openvpn:x:106:109:NetworkManager OpenVPN:/var/lib/openvpn/chroot:/usr/sbin/nologin$
+> speech-dispatcher:x:107:29:Speech Dispatcher:/run/speech-dispatcher:/bin/false$
+> usbmux:x:108:46:usbmux daemon:/var/lib/usbmux:/usr/sbin/nologin$
+> nm-openconnect:x:109:110:NetworkManager OpenConnect plugin:/var/lib/NetworkManager:/usr/sbin/nologin$
+> pulse:x:110:111:PulseAudio daemon:/run/pulse:/usr/sbin/nologin$
+> lightdm:x:111:114:Light Display Manager:/var/lib/lightdm:/bin/false$
+> statd:x:112:65534::/var/lib/nfs:/usr/sbin/nologin$
+> saned:x:113:115::/var/lib/saned:/usr/sbin/nologin$
+> polkitd:x:989:989:User for polkitd:/:/usr/sbin/nologin$
+> rtkit:x:114:116:RealtimeKit:/proc:/usr/sbin/nologin$
+> colord:x:115:117:colord colour management daemon:/var/lib/colord:/usr/sbin/nologin$
+> mysql:x:116:119:MariaDB Server:/nonexistent:/bin/false$
+> stunnel4:x:988:988:stunnel service system account:/var/run/stunnel4:/usr/sbin/nologin$
+> geoclue:x:117:120::/var/lib/geoclue:/usr/sbin/nologin$
+> Debian-snmp:x:118:121::/var/lib/snmp:/bin/false$
+> sslh:x:119:122::/nonexistent:/usr/sbin/nologin$
+> cups-pk-helper:x:120:125:user for cups-pk-helper service:/nonexistent:/usr/sbin/nologin$
+> redsocks:x:121:126::/var/run/redsocks:/usr/sbin/nologin$
+> _gophish:x:122:128::/var/lib/gophish:/usr/sbin/nologin$
+> iodine:x:123:65534::/run/iodine:/usr/sbin/nologin$
+> miredo:x:124:65534::/var/run/miredo:/usr/sbin/nologin$
+> redis:x:125:129::/var/lib/redis:/usr/sbin/nologin$
+> postgres:x:126:130:PostgreSQL administrator:/var/lib/postgresql:/bin/bash$
+> mosquitto:x:127:131::/var/lib/mosquitto:/usr/sbin/nologin$
+> inetsim:x:128:132::/var/lib/inetsim:/usr/sbin/nologin$
+> _gvm:x:129:134::/var/lib/openvas:/usr/sbin/nologin$
+> kali:x:1000:1000::/home/kali:/usr/bin/zsh$
+> root:x:0:$
+> daemon:x:1:$
+> bin:x:2:$
+> sys:x:3:$
+> adm:x:4:kali$
+> tty:x:5:$
+> disk:x:6:$
+> lp:x:7:$
+> mail:x:8:$
+> news:x:9:$
+> uucp:x:10:$
+> man:x:12:$
+> proxy:x:13:$
+> kmem:x:15:$
+> dialout:x:20:kali$
+> fax:x:21:$
+> voice:x:22:$
+> cdrom:x:24:kali$
+> floppy:x:25:kali$
+> tape:x:26:$
+> sudo:x:27:kali$
+> audio:x:29:pulse,kali$
+> dip:x:30:kali$
+> www-data:x:33:$
+> backup:x:34:$
+> operator:x:37:$
+> list:x:38:$
+> irc:x:39:$
+> src:x:40:$
+> shadow:x:42:$
+> utmp:x:43:$
+> video:x:44:kali$
+> sasl:x:45:$
+> plugdev:x:46:kali$
+> staff:x:50:$
+> games:x:60:$
+> users:x:100:kali$
+> nogroup:x:65534:$
+> systemd-journal:x:999:$
+> systemd-network:x:998:$
+> crontab:x:997:$
+> input:x:996:$
+> sgx:x:995:$
+> kvm:x:994:$
+> render:x:993:$
+> netdev:x:101:kali$
+> systemd-timesync:x:992:$
+> messagebus:x:991:$
+> _ssh:x:102:$
+> scanner:x:103:saned,kali$
+> tss:x:104:$
+> tcpdump:x:105:$
+> plocate:x:106:$
+> bluetooth:x:107:kali$
+> avahi:x:108:$
+> nm-openvpn:x:109:$
+> nm-openconnect:x:110:$
+> pulse:x:111:$
+> pulse-access:x:112:$
+> pipewire:x:113:$
+> lightdm:x:114:$
+> saned:x:115:$
+> polkitd:x:989:$
+> rtkit:x:116:$
+> colord:x:117:$
+> kali-trusted:x:118:$
+> mysql:x:119:$
+> stunnel4:x:988:stunnel4$
+> geoclue:x:120:$
+> Debian-snmp:x:121:$
+> sslh:x:122:$
+> ssl-cert:x:123:postgres$
+> i2c:x:124:$
+> lpadmin:x:125:kali$
+> redsocks:x:126:$
+> kismet:x:127:$
+> _gophish:x:128:$
+> sambashare:x:990:$
+> winbindd_priv:x:987:$
+> redis:x:129:_gvm$
+> postgres:x:130:$
+> mosquitto:x:131:$
+> inetsim:x:132:$
+> wireshark:x:133:kali$
+> _gvm:x:134:$
+> kali:x:1000:$
+> kaboxer:x:135:kali$
+> vboxsf:x:136:kali$
+15:18.09 NOK (+10) ./mon_cat /etc/passwd foo /etc/group < /etc/hosts  => 1> == [/etc/group + /etc/passwd] ? NOK, obtenu : 1,144c1,144
+< root:x:0:0:root:/root:/usr/bin/zsh
+< daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+< bin:x:2:2:bin:/bin:/usr/sbin/nologin
+< sys:x:3:3:sys:/dev:/usr/sbin/nologin
+< sync:x:4:65534:sync:/bin:/bin/sync
+< games:x:5:60:games:/usr/games:/usr/sbin/nologin
+< man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+< lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+< mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+< news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+< uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+< proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+< www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+< backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+< list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+< irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+< _apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+< nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+< systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+< dhcpcd:x:100:65534:DHCP Client Daemon:/usr/lib/dhcpcd:/bin/false
+< systemd-timesync:x:992:992:systemd Time Synchronization:/:/usr/sbin/nologin
+< messagebus:x:991:991:System Message Bus:/nonexistent:/usr/sbin/nologin
+< tss:x:101:104:TPM software stack:/var/lib/tpm:/bin/false
+< strongswan:x:102:65534::/var/lib/strongswan:/usr/sbin/nologin
+< tcpdump:x:103:105::/nonexistent:/usr/sbin/nologin
+< sshd:x:990:65534:sshd user:/run/sshd:/usr/sbin/nologin
+< _rpc:x:104:65534::/run/rpcbind:/usr/sbin/nologin
+< dnsmasq:x:999:65534:dnsmasq:/var/lib/misc:/usr/sbin/nologin
+< avahi:x:105:108:Avahi mDNS daemon:/run/avahi-daemon:/usr/sbin/nologin
+< nm-openvpn:x:106:109:NetworkManager OpenVPN:/var/lib/openvpn/chroot:/usr/sbin/nologin
+< speech-dispatcher:x:107:29:Speech Dispatcher:/run/speech-dispatcher:/bin/false
+< usbmux:x:108:46:usbmux daemon:/var/lib/usbmux:/usr/sbin/nologin
+< nm-openconnect:x:109:110:NetworkManager OpenConnect plugin:/var/lib/NetworkManager:/usr/sbin/nologin
+< pulse:x:110:111:PulseAudio daemon:/run/pulse:/usr/sbin/nologin
+< lightdm:x:111:114:Light Display Manager:/var/lib/lightdm:/bin/false
+< statd:x:112:65534::/var/lib/nfs:/usr/sbin/nologin
+< saned:x:113:115::/var/lib/saned:/usr/sbin/nologin
+< polkitd:x:989:989:User for polkitd:/:/usr/sbin/nologin
+< rtkit:x:114:116:RealtimeKit:/proc:/usr/sbin/nologin
+< colord:x:115:117:colord colour management daemon:/var/lib/colord:/usr/sbin/nologin
+< mysql:x:116:119:MariaDB Server:/nonexistent:/bin/false
+< stunnel4:x:988:988:stunnel service system account:/var/run/stunnel4:/usr/sbin/nologin
+< geoclue:x:117:120::/var/lib/geoclue:/usr/sbin/nologin
+< Debian-snmp:x:118:121::/var/lib/snmp:/bin/false
+< sslh:x:119:122::/nonexistent:/usr/sbin/nologin
+< cups-pk-helper:x:120:125:user for cups-pk-helper service:/nonexistent:/usr/sbin/nologin
+< redsocks:x:121:126::/var/run/redsocks:/usr/sbin/nologin
+< _gophish:x:122:128::/var/lib/gophish:/usr/sbin/nologin
+< iodine:x:123:65534::/run/iodine:/usr/sbin/nologin
+< miredo:x:124:65534::/var/run/miredo:/usr/sbin/nologin
+< redis:x:125:129::/var/lib/redis:/usr/sbin/nologin
+< postgres:x:126:130:PostgreSQL administrator:/var/lib/postgresql:/bin/bash
+< mosquitto:x:127:131::/var/lib/mosquitto:/usr/sbin/nologin
+< inetsim:x:128:132::/var/lib/inetsim:/usr/sbin/nologin
+< _gvm:x:129:134::/var/lib/openvas:/usr/sbin/nologin
+< kali:x:1000:1000::/home/kali:/usr/bin/zsh
+< root:x:0:
+< daemon:x:1:
+< bin:x:2:
+< sys:x:3:
+< adm:x:4:kali
+< tty:x:5:
+< disk:x:6:
+< lp:x:7:
+< mail:x:8:
+< news:x:9:
+< uucp:x:10:
+< man:x:12:
+< proxy:x:13:
+< kmem:x:15:
+< dialout:x:20:kali
+< fax:x:21:
+< voice:x:22:
+< cdrom:x:24:kali
+< floppy:x:25:kali
+< tape:x:26:
+< sudo:x:27:kali
+< audio:x:29:pulse,kali
+< dip:x:30:kali
+< www-data:x:33:
+< backup:x:34:
+< operator:x:37:
+< list:x:38:
+< irc:x:39:
+< src:x:40:
+< shadow:x:42:
+< utmp:x:43:
+< video:x:44:kali
+< sasl:x:45:
+< plugdev:x:46:kali
+< staff:x:50:
+< games:x:60:
+< users:x:100:kali
+< nogroup:x:65534:
+< systemd-journal:x:999:
+< systemd-network:x:998:
+< crontab:x:997:
+< input:x:996:
+< sgx:x:995:
+< kvm:x:994:
+< render:x:993:
+< netdev:x:101:kali
+< systemd-timesync:x:992:
+< messagebus:x:991:
+< _ssh:x:102:
+< scanner:x:103:saned,kali
+< tss:x:104:
+< tcpdump:x:105:
+< plocate:x:106:
+< bluetooth:x:107:kali
+< avahi:x:108:
+< nm-openvpn:x:109:
+< nm-openconnect:x:110:
+< pulse:x:111:
+< pulse-access:x:112:
+< pipewire:x:113:
+< lightdm:x:114:
+< saned:x:115:
+< polkitd:x:989:
+< rtkit:x:116:
+< colord:x:117:
+< kali-trusted:x:118:
+< mysql:x:119:
+< stunnel4:x:988:stunnel4
+< geoclue:x:120:
+< Debian-snmp:x:121:
+< sslh:x:122:
+< ssl-cert:x:123:postgres
+< i2c:x:124:
+< lpadmin:x:125:kali
+< redsocks:x:126:
+< kismet:x:127:
+< _gophish:x:128:
+< sambashare:x:990:
+< winbindd_priv:x:987:
+< redis:x:129:_gvm
+< postgres:x:130:
+< mosquitto:x:131:
+< inetsim:x:132:
+< wireshark:x:133:kali
+< _gvm:x:134:
+< kali:x:1000:
+< kaboxer:x:135:kali
+< vboxsf:x:136:kali
+---
+> root:x:0:0:root:/root:/usr/bin/zsh$
+> daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin$
+> bin:x:2:2:bin:/bin:/usr/sbin/nologin$
+> sys:x:3:3:sys:/dev:/usr/sbin/nologin$
+> sync:x:4:65534:sync:/bin:/bin/sync$
+> games:x:5:60:games:/usr/games:/usr/sbin/nologin$
+> man:x:6:12:man:/var/cache/man:/usr/sbin/nologin$
+> lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin$
+> mail:x:8:8:mail:/var/mail:/usr/sbin/nologin$
+> news:x:9:9:news:/var/spool/news:/usr/sbin/nologin$
+> uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin$
+> proxy:x:13:13:proxy:/bin:/usr/sbin/nologin$
+> www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin$
+> backup:x:34:34:backup:/var/backups:/usr/sbin/nologin$
+> list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin$
+> irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin$
+> _apt:x:42:65534::/nonexistent:/usr/sbin/nologin$
+> nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin$
+> systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin$
+> dhcpcd:x:100:65534:DHCP Client Daemon:/usr/lib/dhcpcd:/bin/false$
+> systemd-timesync:x:992:992:systemd Time Synchronization:/:/usr/sbin/nologin$
+> messagebus:x:991:991:System Message Bus:/nonexistent:/usr/sbin/nologin$
+> tss:x:101:104:TPM software stack:/var/lib/tpm:/bin/false$
+> strongswan:x:102:65534::/var/lib/strongswan:/usr/sbin/nologin$
+> tcpdump:x:103:105::/nonexistent:/usr/sbin/nologin$
+> sshd:x:990:65534:sshd user:/run/sshd:/usr/sbin/nologin$
+> _rpc:x:104:65534::/run/rpcbind:/usr/sbin/nologin$
+> dnsmasq:x:999:65534:dnsmasq:/var/lib/misc:/usr/sbin/nologin$
+> avahi:x:105:108:Avahi mDNS daemon:/run/avahi-daemon:/usr/sbin/nologin$
+> nm-openvpn:x:106:109:NetworkManager OpenVPN:/var/lib/openvpn/chroot:/usr/sbin/nologin$
+> speech-dispatcher:x:107:29:Speech Dispatcher:/run/speech-dispatcher:/bin/false$
+> usbmux:x:108:46:usbmux daemon:/var/lib/usbmux:/usr/sbin/nologin$
+> nm-openconnect:x:109:110:NetworkManager OpenConnect plugin:/var/lib/NetworkManager:/usr/sbin/nologin$
+> pulse:x:110:111:PulseAudio daemon:/run/pulse:/usr/sbin/nologin$
+> lightdm:x:111:114:Light Display Manager:/var/lib/lightdm:/bin/false$
+> statd:x:112:65534::/var/lib/nfs:/usr/sbin/nologin$
+> saned:x:113:115::/var/lib/saned:/usr/sbin/nologin$
+> polkitd:x:989:989:User for polkitd:/:/usr/sbin/nologin$
+> rtkit:x:114:116:RealtimeKit:/proc:/usr/sbin/nologin$
+> colord:x:115:117:colord colour management daemon:/var/lib/colord:/usr/sbin/nologin$
+> mysql:x:116:119:MariaDB Server:/nonexistent:/bin/false$
+> stunnel4:x:988:988:stunnel service system account:/var/run/stunnel4:/usr/sbin/nologin$
+> geoclue:x:117:120::/var/lib/geoclue:/usr/sbin/nologin$
+> Debian-snmp:x:118:121::/var/lib/snmp:/bin/false$
+> sslh:x:119:122::/nonexistent:/usr/sbin/nologin$
+> cups-pk-helper:x:120:125:user for cups-pk-helper service:/nonexistent:/usr/sbin/nologin$
+> redsocks:x:121:126::/var/run/redsocks:/usr/sbin/nologin$
+> _gophish:x:122:128::/var/lib/gophish:/usr/sbin/nologin$
+> iodine:x:123:65534::/run/iodine:/usr/sbin/nologin$
+> miredo:x:124:65534::/var/run/miredo:/usr/sbin/nologin$
+> redis:x:125:129::/var/lib/redis:/usr/sbin/nologin$
+> postgres:x:126:130:PostgreSQL administrator:/var/lib/postgresql:/bin/bash$
+> mosquitto:x:127:131::/var/lib/mosquitto:/usr/sbin/nologin$
+> inetsim:x:128:132::/var/lib/inetsim:/usr/sbin/nologin$
+> _gvm:x:129:134::/var/lib/openvas:/usr/sbin/nologin$
+> kali:x:1000:1000::/home/kali:/usr/bin/zsh$
+> root:x:0:$
+> daemon:x:1:$
+> bin:x:2:$
+> sys:x:3:$
+> adm:x:4:kali$
+> tty:x:5:$
+> disk:x:6:$
+> lp:x:7:$
+> mail:x:8:$
+> news:x:9:$
+> uucp:x:10:$
+> man:x:12:$
+> proxy:x:13:$
+> kmem:x:15:$
+> dialout:x:20:kali$
+> fax:x:21:$
+> voice:x:22:$
+> cdrom:x:24:kali$
+> floppy:x:25:kali$
+> tape:x:26:$
+> sudo:x:27:kali$
+> audio:x:29:pulse,kali$
+> dip:x:30:kali$
+> www-data:x:33:$
+> backup:x:34:$
+> operator:x:37:$
+> list:x:38:$
+> irc:x:39:$
+> src:x:40:$
+> shadow:x:42:$
+> utmp:x:43:$
+> video:x:44:kali$
+> sasl:x:45:$
+> plugdev:x:46:kali$
+> staff:x:50:$
+> games:x:60:$
+> users:x:100:kali$
+> nogroup:x:65534:$
+> systemd-journal:x:999:$
+> systemd-network:x:998:$
+> crontab:x:997:$
+> input:x:996:$
+> sgx:x:995:$
+> kvm:x:994:$
+> render:x:993:$
+> netdev:x:101:kali$
+> systemd-timesync:x:992:$
+> messagebus:x:991:$
+> _ssh:x:102:$
+> scanner:x:103:saned,kali$
+> tss:x:104:$
+> tcpdump:x:105:$
+> plocate:x:106:$
+> bluetooth:x:107:kali$
+> avahi:x:108:$
+> nm-openvpn:x:109:$
+> nm-openconnect:x:110:$
+> pulse:x:111:$
+> pulse-access:x:112:$
+> pipewire:x:113:$
+> lightdm:x:114:$
+> saned:x:115:$
+> polkitd:x:989:$
+> rtkit:x:116:$
+> colord:x:117:$
+> kali-trusted:x:118:$
+> mysql:x:119:$
+> stunnel4:x:988:stunnel4$
+> geoclue:x:120:$
+> Debian-snmp:x:121:$
+> sslh:x:122:$
+> ssl-cert:x:123:postgres$
+> i2c:x:124:$
+> lpadmin:x:125:kali$
+> redsocks:x:126:$
+> kismet:x:127:$
+> _gophish:x:128:$
+> sambashare:x:990:$
+> winbindd_priv:x:987:$
+> redis:x:129:_gvm$
+> postgres:x:130:$
+> mosquitto:x:131:$
+> inetsim:x:132:$
+> wireshark:x:133:kali$
+> _gvm:x:134:$
+> kali:x:1000:$
+> kaboxer:x:135:kali$
+> vboxsf:x:136:kali$
+15:18.09 NOK (+05) ./mon_cat /etc/passwd foo /etc/group < /etc/hosts => 2> == ...mon_cat... ? NOK, obtenu : foo: No such file or directory
+15:18.09 NOK (+05) ./mon_cat /etc/passwd foo /etc/group < /etc/hosts => $? == 1 ? NOK, obtenu : 0
+15:18.09 OK   +20  ./mon_cat -E /etc/passwd => 1> == [/etc/passwd$] ? OK

@@ -1,0 +1,6 @@
+05:06.20 test ./nombre_fichiers foo /etc/group bar /etc/passwd
+05:06.20 OK   +50  => 1> == 2 ? OK
+05:06.20 test ./nombre_fichiers foo bar baz
+05:06.20 OK   +25  ./nombre_fichiers.sh => 1> == 0 ? OK
+05:06.20 test ./nombre_fichiers
+05:06.20 OK   +25  ./nombre_fichiers.sh => 1> == 0 ? OK
