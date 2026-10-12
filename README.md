@@ -9,28 +9,28 @@ Ce dépôt regroupe l'ensemble de mes travaux pratiques, projets et exercices r�
 ## Structure du dépôt
 
 ```
-CYBER1/
-├── S1/                    # Première année
-│   ├── Programmation_C/    # Langage C, TD et TP
-│   │   ├── TD/           # Travaux dirigés
-│   │   ├── TP/           # Travaux pratiques
-│   │   └── Finals/       # Projets finaux
+CYBER1/                             # Première année
+├── S1/                    
+│   ├── Programmation_C/    
+│   │   ├── TD/           
+│   │   ├── TP/           
+│   │   └── Finals/       
 │   │
-│   ├── Systemes_Linux/    # Administration et script shell
+│   ├── Systemes_Linux/    
 │   │   ├── TP/
 │   │   └── Finals/
 │   │
-│   └── Programmation_Python/ # Développement Python
+│   └── Programmation_Python/ 
 │       ├── TP/
 │       └── ...
 │
-└── S2/                    # Deuxième année
-    ├── Algorithmique/      # Structures de données, ABR
-    ├── Arithmetique_Cryptographie/ # Cryptographie, RSA, Euclide
-    ├── Bases_de_donnees/   # SQL, projets base de données
-    ├── Developpement_Web/ # Projets web full-stack
-    │   └── RENDU_BOZONNIER_Sylvain/ # Projet bibliothèque en Node.js
-    └── Securite/          # Sécurité Python, analyseurs
+└── S2/                    
+    ├── Algorithmique/      
+    ├── Arithmetique_Cryptographie/ 
+    ├── Bases_de_donnees/   
+    ├── Developpement_Web/ 
+    │   └── RENDU_BOZONNIER_Sylvain/ 
+    └── Securite/          
 ```
 
 ## Compétences
@@ -81,21 +81,15 @@ Outil d'analyse de vulnérabilités réseau en Python. Détection de ports ouver
 
 ## Formation
 
-**EPITA** - École Pour l'Informatique et les Techniques Avancées
-- Promotion : 2025-2026
+Partenaria **POLYTECHNIQUE et EPITA** - X / École Pour l'Informatique et les Techniques Avancées
+- Promotion : 2025-2028
 - Spécialisation : Cybersécurité
-- Parcours : Ingénierie Informatique
 
 ## Contact
 
 - **GitHub** : [DarkS020506](https://github.com/DarkS020506)
-- **Email** : à compléter
-- **LinkedIn** : à compléter
-- **Portfolio Web** : à compléter
-
-## Licence
-
-Ce dépôt est à usage personnel et éducatif. Les projets peuvent être utilisés comme référence en mentionnant l'auteur.
+- **Email** : sylvain_bozonnier@yahoo.com
+- **LinkedIn** : [Sylvain B.](https://www.linkedin.com/in/sylvain-b-8623b538a/)
 
 ---
 
